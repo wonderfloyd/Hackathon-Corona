@@ -4,7 +4,7 @@ import * as videos from '../routes/videos';
 
 console.log('Initialize server/app.ts');
 
-const port = 4000;
+const port = 4001;
 
 const app:express.Application = express();
 
