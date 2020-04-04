@@ -2,7 +2,11 @@ const express = require('express');
 const router = express.Router();
 
 const monk = require('monk');
-const db = monk('localhost:27017/videos');
+// TODO get dbName from environment variable
+const dbName = 'stencil-vidzy';
+const dbUrl = 'localhost:27017/' + dbName;
+console.log('DB: ' + dbUrl);
+const db = monk(dbUrl);
 
 router.get('/', function(req, res) {
   const collection = db.get('videos');
