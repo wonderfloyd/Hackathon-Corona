@@ -1,19 +1,5 @@
-# Simple Typescript Express application that uses Stencil components
-
-A vidzy application that its Frontend is composed from web Stencil components and its Backend is a nodejs express application.
-
-## References
-### Stencil Express Application
-https://github.com/egreb/express-typescript-stencil-starter
-
-### Vidzy Application
-- Tutorial: https://www.udemy.com/blog/node-js-tutorial/
-- examples:
-  - https://github.com/NelsonScott/Vidzy
-  - https://github.com/Willseph/Vidzy
-
-# Getting Started
-Clone the Repo.
+# 📼 Stencil Express MongoDB Video-Store 
+Simple Typescript Express application that uses Stencil components
 ## Install
     npm install
 ## Setting Up Mongo Data-Base
@@ -35,3 +21,18 @@ The nodemon exec command does 2 things:
     ts-node --project tsconfig.server.json server/app.ts
 ## Open Browser
 http://localhost:4001/
+## Expected Page
+![Image20200405090156](https://user-images.githubusercontent.com/12394551/78468089-9ae96c80-771c-11ea-8798-7dce31ca00aa.png)
+# Overview
+Based on [vidzy](https://www.udemy.com/blog/node-js-tutorial/) tutorial application
+- Frontend is composed from web Stencil components.<br>
+  Not angularjs as in the vidzy tutorial
+- Backend is a nodejs express application
+- Database is MongoDB
+## Stencil Express Application
+https://github.com/egreb/express-typescript-stencil-starter
+## Vidzy Application
+- Tutorial: https://www.udemy.com/blog/node-js-tutorial/
+- examples:
+  - https://github.com/NelsonScott/Vidzy
+  - https://github.com/Willseph/Vidzy
