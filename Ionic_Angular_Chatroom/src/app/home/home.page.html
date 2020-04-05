@@ -1,0 +1,15 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Welcome Home Page</ion-title>
+    <app-main-nav [userName]="userName"></app-main-nav>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <!-- <ion-header collapse="condense">
+    <ion-toolbar>
+      <app-main-nav [userName]="userName"></app-main-nav>
+    </ion-toolbar>
+  </ion-header> -->
+  <app-chat [userName]="userName"></app-chat>
+</ion-content>

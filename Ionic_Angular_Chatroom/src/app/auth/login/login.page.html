@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <app-input-field
+    label="Email"
+    id="email-input"
+    type="email"
+    (changeHandler)="handleEmailInput($event)"
+  ></app-input-field>
+  <app-input-field
+    label="Password"
+    id="password-input"
+    type="password"
+    (changeHandler)="handlePasswordInput($event)"
+  ></app-input-field>
+
+  <div style="display: flex; justify-content: center; margin: 5% 0;">
+    <ion-button id="submit-login" type="submit" (click)="handleSubmit()">Login</ion-button>
+    <ion-button id="register-link" [routerLink]="['./register']">Sign Up</ion-button>
+  </div>
+
+  <ion-item id="login-failed" *ngIf="loginFailed">
+    <ion-text style="color: red">Login Failed!</ion-text>
+  </ion-item>
+  
+</ion-content>

@@ -1,9 +1,21 @@
 # Skeleton app for a chat room using Ionic 4 / angular
 
 A simple chat room. Every user logged in will be able to send and recieve messages to / from all other users.  
-See [Issues](https://github.com/wonderfloyd/Skeleton_Chatroom_Ionic_Angular/issues) for what's still missing / not working properley.
+Look in [Issues](https://github.com/wonderfloyd/Hackathon-Corona/issues) for the 📬 icon to see what's still missing / not working properley.
 
 ----
+## Tech stack
+### App
+- TypeScript
+- Ionic 4 / Angular
+- Capacitor
+- Firebase
+
+### E2E Testing
+- Jasmine
+- Protractor
+- Appium
+
 ## Install and run dev enviroment
 ### Set up Firebase
 1. Open [Firebase conosle](https://console.firebase.google.com/) and start a new project.
@@ -39,24 +51,20 @@ Or to run on Android:
 
 5. Download *Android Studio* from the [Android website](https://developer.android.com/studio/).
 6. Follow the instructions in [Ionic's guide](https://ionicframework.com/docs/installation/android) and/or in [Android's guide](https://developer.android.com/studio/install) to set everything up.
-7. Run `ionic capacitor add android` to add an Android project using [Capacitor](https://capacitor.ionicframework.com/).
-8. Run `ionic build` and `ionic copy` to sync the Android project with the Ionic project.
-9. Open *Android Studio* and run the project (green play button) on your selected device.
+7. Run `ionic build` to build JS bundles.
+8. Run `ionic capacitor add android` to add an Android project using [Capacitor](https://capacitor.ionicframework.com/).
+9. Run `ionic capacitor copy` to sync the Android project with the Ionic project.
+10. To open the project in *Android Studio*, run `ionic cap run android`, or open the project folder from *Android Studio*.
+11. Press the green play button to run the project on your selected device.
 
 _* Note: The instructions assume an Android OS device. The steps for running the dev build on iOS devices are slightly different (and require a Mac or iOS device). More info about installing, and using Ionic can be found [here](https://ionicframework.com/docs)_.
 
 **You should be able to login with the users you created in your Firebase project and send messages.**
-
-## APK file
-An APK file of the app can be found [here](https://github.com/OPerel/feelings_skeleton/tree/master/android/app/build/outputs/apk/debug) (doesn't require any configuration).  
-You can login using three different users:  
-1. Email: *john@mail.com* - Password: *asdfgh*.
-2. Email: *bella@mail.com* - Password: *zxcvbn*.
-3. Email: *david@mail.com* - Password: *qwerty*.
 
 ## Running tests (e2e)
 To run tests (web version):
 1. Run the dev web server with `ionic serve`.
 2. Run `npm run e2e:web`.
 
-Note: There's no need to run a Webdriver instance in order to run the tests. __BUT: There might be a problem with running the tests. Please tell me if you get: *'error: Could not find update-config.json. Run 'webdriver-manager update' to download binaries.'* and running `webdriver-manager update` does not help.__
+There's no need to run a Webdriver instance in order to run the tests (as long as the dev server is running on port `8100`). __BUT: There might be a problem running the tests if you have a global installation of Webdriver. If you get: *'error: Could not find update-config.json. Run 'webdriver-manager update' to download binaries.'* and running `webdriver-manager update` does not help, try running `cd node_modules/.bin && webdriver-manager update` to update the local dependency of Webdriver.__
+*Note: Remeber to `cd` back out of `/node_modules/.bin`.*

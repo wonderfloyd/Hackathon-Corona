@@ -1,0 +1,7 @@
+{
+  "name": "Skeleton-Chatroom-Ionic-Angular",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
