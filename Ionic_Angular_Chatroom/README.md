@@ -1,9 +1,21 @@
 # Skeleton app for a chat room using Ionic 4 / angular
 
 A simple chat room. Every user logged in will be able to send and recieve messages to / from all other users.  
-See [Issues](https://github.com/wonderfloyd/Skeleton_Chatroom_Ionic_Angular/issues) for what's still missing / not working properley.
+Look in [Issues](https://github.com/wonderfloyd/Hackathon-Corona/issues) for the 📬 icon to see what's still missing / not working properley.
 
 ----
+## Tech stack
+### App
+- TypeScript
+- Ionic 4 / Angular
+- Capacitor
+- Firebase
+
+### E2E Testing
+- Jasmine
+- Protractor
+- Appium
+
 ## Install and run dev enviroment
 ### Set up Firebase
 1. Open [Firebase conosle](https://console.firebase.google.com/) and start a new project.
