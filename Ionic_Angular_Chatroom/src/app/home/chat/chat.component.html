@@ -1,0 +1,35 @@
+<div class="main">
+  <div class="chat-box">
+    <div class="message-area">
+      <div
+        class="message"
+        *ngFor="let message of messages"
+        [ngClass]="getMessageType(message)"
+      >
+        <app-user-avatar
+          [userName]="message.user.name"
+          *ngIf="getMessageType(message) === 'incoming'"
+        ></app-user-avatar>
+        <p [id]="message.id">{{message.text}}</p>
+      </div>
+    </div>
+    <div class="emo-area">
+      <!-- emoji-panel component comes here -->
+    </div>
+    <div class="input-area">
+      <form name="messageForm" #messageForm="ngForm">
+        <ion-input
+          type="text"
+          name="message-input"
+          id="message-input"
+          [(ngModel)]="message"
+          #ctrl="ngModel"
+          placeholder="Say something nice..."
+        ></ion-input>
+        <ion-button id="send-message" (click)="sendMessage()">
+          <ion-icon name="send"></ion-icon>
+        </ion-button>
+      </form>
+    </div>
+  </div>  
+</div>

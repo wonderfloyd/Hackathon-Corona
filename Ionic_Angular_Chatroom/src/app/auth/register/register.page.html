@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-title>Register</ion-title>
+        </ion-col>
+        <ion-col>
+          <ion-back-button
+            id="back-to-login"
+            text="Back to Login"
+            defaultHref="auth"
+            color="primary"
+          ></ion-back-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+  <app-input-field
+    label="Email"
+    id="register-email-input"
+    type="email"
+    (changeHandler)="onEmailInput($event)"
+  ></app-input-field>
+  <app-input-field
+    label="Password"
+    id="register-password-input"
+    type="password"
+    (changeHandler)="onPasswordInput($event)"
+  ></app-input-field>
+
+  <ion-button id="register-button" (click)="registerNewUser()">Register</ion-button>
+
+</ion-content>
