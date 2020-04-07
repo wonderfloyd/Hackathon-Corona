@@ -1,4 +1,4 @@
-# 📼 Stencil Express MongoDB Video-Store 
+# 📽️ Stencil Express MongoDB Video-Store 
 Simple Typescript Express application that uses Stencil components
 ## Install
     npm install
