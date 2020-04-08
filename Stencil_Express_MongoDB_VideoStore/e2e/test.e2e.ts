@@ -26,7 +26,7 @@ describe('Example e2e test', () => {
     expect(titleText).toEqual('Video Store');
   });
 
-  test('should click "The Matrix" listing', async () => {
+  test('should click "The Matrix" listing and navigate to video page', async () => {
     await page.click('[data-testid="videoLink-5e8d6e11d250a3ecb93fef6e"]');
     await page.waitForSelector('video-page');
   });

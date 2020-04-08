@@ -1,11 +1,13 @@
 import {Component, Prop, h} from '@stencil/core';
 
+import { Video } from '../../types';
+
 @Component({
   tag: 'app-home',
   styleUrl: 'app-home.scss'
 })
 export class AppHome {
-  @Prop() videos: any = [];
+  @Prop() videos: Video[] = [];
 
   connectedCallback() {
     console.log('Get Videos');
