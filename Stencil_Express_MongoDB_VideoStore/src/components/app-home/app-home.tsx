@@ -25,15 +25,15 @@ export class AppHome {
   render() {
     return (
       <p>
-        {this.videos.map((video) =>
-          <ul>
-            <li>
-              <stencil-route-link url={`/video/${video._id}`}>
+        <ul> 
+          {this.videos.map((video) =>
+            <li >
+              <stencil-route-link data-testid={`videoLink-${video._id}`} url={`/video/${video._id}`}>
                 {video.title}
               </stencil-route-link>
             </li>
-          </ul>
-        )}
+          )}
+        </ul>
         <span>src/components/app-home/app-home.tsx</span>
       </p>
     );

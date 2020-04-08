@@ -4,7 +4,7 @@ import { MatchResults } from '@stencil/router';
 @Component({
   tag: 'video-page',
   styleUrl: 'video-page.css',
-  shadow: true
+  // shadow: true
 })
 export class VideoPage {
   @Prop() match: MatchResults; //identical in concept to Angular’s @Input
