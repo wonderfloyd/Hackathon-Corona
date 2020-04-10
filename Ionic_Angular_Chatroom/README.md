@@ -11,7 +11,7 @@ Skeleton app for a chat room using Ionic 4 / angular
 ## BackEnd
 - [Firebase](https://firebase.google.com/)
 ## Mobile Integration
-- [Capacitor](https://capacitor.ionicframework.com/)
+- [Ionic - Capacitor](https://capacitor.ionicframework.com/)
 ## DataBase
 - [Firebase Realtime DB](https://firebase.google.com/)
 - [Firebase NPM Package](https://www.npmjs.com/package/firebase)
