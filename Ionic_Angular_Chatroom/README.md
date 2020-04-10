@@ -3,22 +3,22 @@ Skeleton app for a chat room using Ionic 4 / angular
 - A simple chat room.
 - Every user logged in will be able to send and recieve messages to / from all other users.
 
-Based on [FILLME](https://www.fillme/) tutorial application
-- 
+<!-- not based on a specific tutorial -->
+
 ## FrontEnd
-[Ionic 4 / Angular](https://www.fillme/)
-- typescript
+- [Ionic 4 / Angular](https://ionicframework.com/docs/angular/overview)
+- [TypeScript](https://www.typescriptlang.org/)
 ## BackEnd
-nodejs express application
+- [Firebase](https://firebase.google.com/)
 ## Mobile Integration
-[Capacitor]()
+- [Capacitor](https://capacitor.ionicframework.com/)
 ## DataBase
-[Firebase](https://www.fillme/)
-- ?? Which nodejs lib is used to work with firebase server ??
+- [Firebase Realtime DB](https://firebase.google.com/)
+- [Firebase NPM Package](https://www.npmjs.com/package/firebase)
 ## Tests
-- Jasmine
-- Protractor
-- Appium
+- [Jasmine](https://jasmine.github.io/index.html)
+- [Protractor](https://www.protractortest.org/#/)
+- [Appium](http://appium.io/)
 
 ![DiagramImage](https://www.fillme/)
 # Set Up
