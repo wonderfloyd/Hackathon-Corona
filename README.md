@@ -1,13 +1,21 @@
 # Hackathon-Corona
 12 Hour Hachathon for developing End-2-End Applications in Javascript<br>
 Each Application is a FullStack Application with some functionality.
-# Applications:
-- 📬 [Ionic Angular Firebase Chatroom](./Ionic_Angular_Chatroom/README.md)
-- 📽️ [Stencil Express MongoDB Video-Store](./Stencil_Express_MongoDB_VideoStore/README.md)
-- 📷 [React PostgreSQL Photo Album](./react_postgreSQL_photo_album/README.md)
 
-The root project presents all Applications in the Hackathon.
+The root project presents all Applications in the Hackathon.<br>
 Each Application has a folder that contains all src files that are needed for installing and running the application.
+# Applications:
+| Name   |      Ports   |      DataBase   |      Comments
+|----------|:-------------:|:-------------:|:-------------:|
+| 📷 [React PostgreSQL Photo Album](./react_postgreSQL_photo_album/README.md) | 3000,3001 | Postgres
+| 📽️ [Stencil Express MongoDB Video-Store](./Stencil_Express_MongoDB_VideoStore/README.md) |    4001 | MongoDB
+| 📬 [Ionic Angular Firebase Chatroom](./Ionic_Angular_Chatroom/README.md) |  8100 |  Firestore |  +Mobile
+## <a id="adding-application">Adding Application to List</a>
+- Choose unique emoji 
+- Choose unique default ports (so we can run all applications together)
+- README with complete installation and running information
+- Add Issues to develop in the application (at least 5)
+- Update the Application list
 
 # Hackathon Prerequisites
 - For each of the Applications:
@@ -17,7 +25,7 @@ Each Application has a folder that contains all src files that are needed for in
   - Create more issues - If you want some feature added to one of the applications or any other functionality you have in mind, than feel free to open more issues.
     - Make sure the Application emoji is first in the issue title
     - Write a description of what you want to achieve, maybe add some screenshots or some other visuals for better communication of your idea.
-- Suggest an Application to the Hackathon
+- Optional - [Suggest an Application to the Hackathon](#adding-application)
 # Hackathon Schedule
 - Starting at 14:00
 - Introduction
