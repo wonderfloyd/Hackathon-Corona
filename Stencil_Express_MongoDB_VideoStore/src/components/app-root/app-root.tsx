@@ -5,7 +5,7 @@ console.log('src/components/app-root/app-root.tsx');
 @Component({
   tag: 'app-root',
   styleUrl: 'app-root.css',
-  shadow: true
+  // shadow: true
 })
 export class AppRoot {
 

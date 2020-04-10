@@ -1,14 +1,16 @@
 import { Component, Prop, h } from '@stencil/core';
 import { MatchResults } from '@stencil/router';
 
+import { Video } from '../../types';
+
 @Component({
   tag: 'video-page',
   styleUrl: 'video-page.css',
-  shadow: true
+  // shadow: true
 })
 export class VideoPage {
   @Prop() match: MatchResults; //identical in concept to Angular’s @Input
-  @Prop() video: any;
+  @Prop() video: Video;
 
   connectedCallback() {
     const videoId = this.match.params.id;

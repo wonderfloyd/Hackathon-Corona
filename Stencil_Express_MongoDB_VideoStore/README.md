@@ -1,5 +1,22 @@
-# 📼 Stencil Express MongoDB Video-Store 
+# 📽️ Stencil Express MongoDB Video-Store 
 Simple Typescript Express application that uses Stencil components
+
+Based on [vidzy](https://www.udemy.com/blog/node-js-tutorial/) tutorial application ([example1](https://github.com/NelsonScott/Vidzy), [example2](https://github.com/Willseph/Vidzy))
+## FrontEnd
+[Stencil](https://stenciljs.com/) web components.<br>
+(Not angularjs as in the vidzy tutorial)
+## BackEnd
+nodejs express application,<br>
+Based on [Stencil Express Application](https://github.com/egreb/express-typescript-stencil-starter)
+## DataBase
+[MongoDB](https://www.mongodb.com/)
+- The express application uses [monk](https://www.npmjs.com/package/monk) to work with the mongo server
+## Tests
+[Jest](https://jestjs.io/docs/en/puppeteer) [Puppeteer](https://www.sitepoint.com/puppeteer-end-to-end-testing/)
+
+![Image20200409165226](https://user-images.githubusercontent.com/12394551/78902522-93122b00-7a82-11ea-8fa0-56b1564acdb1.png)
+
+# Set Up
 ## Install
     npm install
 ## Setting Up Mongo Data-Base
@@ -23,16 +40,4 @@ The nodemon exec command does 2 things:
 http://localhost:4001/
 ## Expected Page
 ![Image20200405090156](https://user-images.githubusercontent.com/12394551/78468089-9ae96c80-771c-11ea-8798-7dce31ca00aa.png)
-# Overview
-Based on [vidzy](https://www.udemy.com/blog/node-js-tutorial/) tutorial application
-- Frontend is composed from web Stencil components.<br>
-  Not angularjs as in the vidzy tutorial
-- Backend is a nodejs express application
-- Database is MongoDB
-## Stencil Express Application
-https://github.com/egreb/express-typescript-stencil-starter
-## Vidzy Application
-- Tutorial: https://www.udemy.com/blog/node-js-tutorial/
-- examples:
-  - https://github.com/NelsonScott/Vidzy
-  - https://github.com/Willseph/Vidzy
+
