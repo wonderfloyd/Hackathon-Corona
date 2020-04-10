@@ -5,16 +5,17 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { Video, } from "./types";
 import { MatchResults, } from "@stencil/router";
 export namespace Components {
     interface AppHome {
-        "videos": any;
+        "videos": Video[];
     }
     interface AppRoot {
     }
     interface VideoPage {
         "match": MatchResults;
-        "video": any;
+        "video": Video;
     }
 }
 declare global {
@@ -44,13 +45,13 @@ declare global {
 }
 declare namespace LocalJSX {
     interface AppHome {
-        "videos"?: any;
+        "videos"?: Video[];
     }
     interface AppRoot {
     }
     interface VideoPage {
         "match"?: MatchResults;
-        "video"?: any;
+        "video"?: Video;
     }
     interface IntrinsicElements {
         "app-home": AppHome;

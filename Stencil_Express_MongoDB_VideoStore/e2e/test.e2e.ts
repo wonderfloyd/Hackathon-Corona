@@ -1,8 +1,10 @@
-import puppeteer, { Browser, Page } from 'puppeteer';
+import puppeteer, {Browser, Page} from 'puppeteer';
 
 let browser: Browser, page: Page;
 
 const baseUrl = `http://localhost:4001`;
+
+const waitTime = 200;
 
 describe('Example e2e test', () => {
   beforeAll(async () => {
@@ -26,13 +28,30 @@ describe('Example e2e test', () => {
     expect(titleText).toEqual('Video Store');
   });
 
-  test('should click "The Matrix" listing and navigate to video page', async () => {
-    await page.click('[data-testid="videoLink-5e8d6e11d250a3ecb93fef6e"]');
+  test('Main Table Text', async () => {
+    await wait('Main Table Text');
+    const titleText  = await page.$eval('ul', h => h.textContent);
+    expect(titleText).toEqual('Indiana JonesThe Matrix');
+  });
+
+  test('Navigate to Matrix Video Page', async () => {
+    await wait('Navigate to Matrix Video Page');
+    let videoId = '5e881f7051cda8a3dbb2241d';
+    await page.click('[data-testid="videoLink-' + videoId + '"]');
     await page.waitForSelector('video-page');
   });
 
-  test('should get "The Matrix" listing details', async () => {
+  test('"The Matrix" listing details', async () => {
+    await wait('"The Matrix" listing details');
     const titleVal = await page.$eval('form', h => h.querySelector('input').value);
+    console.log("titleVal: " + titleVal);
     expect(titleVal).toEqual('The Matrix');
   });
 });
+
+async function wait(name) {
+  console.log((name ? name + ': ' : '') + 'Wait ' + waitTime + ' ms');
+  await new Promise(function (resolve) {
+    setTimeout(resolve, waitTime)
+  });
+}
