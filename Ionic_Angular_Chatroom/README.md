@@ -20,7 +20,7 @@ Skeleton app for a chat room using Ionic 4 / angular
 - [Protractor](https://www.protractortest.org/#/)
 - [Appium](http://appium.io/)
 
-![DiagramImage](https://www.fillme/)
+![Diagram Image](https://github.com/wonderfloyd/Hackathon-Corona/blob/Ionic_Angular_Chatroom/Ionic_Angular_Chatroom/src/assets/ChatroomIonicAngular.png)
 # Set Up
 ## Set up Firebase
 1. Open [Firebase conosle](https://console.firebase.google.com/) and start a new project.
@@ -50,7 +50,11 @@ Skeleton app for a chat room using Ionic 4 / angular
 ### Open Browser
 http://localhost:8100
 ### Expected Page
-![ExpectedPageImage](fillme)
+You should first see the Login Page:
+![Login Page](https://github.com/wonderfloyd/Hackathon-Corona/blob/Ionic_Angular_Chatroom/Ionic_Angular_Chatroom/src/assets/chatFirstPage.JPG)
+
+After logging in you'll see the Chat Page:
+![Chat Page](https://github.com/wonderfloyd/Hackathon-Corona/blob/Ionic_Angular_Chatroom/Ionic_Angular_Chatroom/src/assets/ionicChatPage.JPG)
     
 ### E2E Tests (web version):
     npm run e2e:web
