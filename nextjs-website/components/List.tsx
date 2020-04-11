@@ -1,16 +1,15 @@
 import * as React from 'react';
 import ListItem from './ListItem';
-import { User } from '../interfaces';
 
 type Props = {
-  items: User[]
+  posts: any[]
 }
 
-const List: React.FunctionComponent<Props> = ({ items }) => (
+const List: React.FunctionComponent<Props> = ({ posts }) => (
   <ul>
-    {items.map(item => (
-      <li key={item.id}>
-        <ListItem data={item} />
+    {posts.map(post => (
+      <li key={post.sys.id}>
+        <ListItem data={post} />
       </li>
     ))}
   </ul>

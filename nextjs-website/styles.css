@@ -5,10 +5,12 @@ body {
   font-family: 'Courier New', Courier, monospace;
   background-color: #235758;
   color: #fefefe;
+
+  overflow-x: hidden;
 }
 
 a {
-  color: #9e9e9e;
+  color: #77f1d2;
   text-decoration: none;
 }
 
@@ -17,6 +19,6 @@ a:hover {
 }
 
 a:visited {
-  color: #9e9e9e;
+  color: #77f1d2;
 }
 

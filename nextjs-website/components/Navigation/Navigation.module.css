@@ -1,5 +1,11 @@
 .header {
-  height: 7%;
+  position: fixed;
+  top: 0;
+  left:0;
+  width: 100vw;
+
+  height: 40px;
+  background-color: #235758;
   border-bottom: 1px solid #ccc;
   
   display: flex;
