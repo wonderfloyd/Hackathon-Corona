@@ -8,6 +8,11 @@ const AboutPage: React.FunctionComponent = () => (
     <p>So we are stuck at home for god knows how long...</p>
     <p>Great! Lets start hacking!</p>
     <p>
+      <a href="https://github.com/wonderfloyd/Hackathon-Corona/issues" target="_blank">
+        Get Started
+      </a>
+    </p>
+    <p>
       <Link href="/">
         <a>Go home</a>
       </Link>

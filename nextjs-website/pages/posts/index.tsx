@@ -22,7 +22,7 @@ const BlogIndex = ({ posts, errors }: Props) => {
   }
 
   return (
-    <Layout title="Users List">
+    <Layout title="Posts List">
       <h1>Posts List</h1>
       <List posts={posts} />
       <p>
@@ -37,14 +37,10 @@ const BlogIndex = ({ posts, errors }: Props) => {
 
 
 export const getStaticProps: GetStaticProps = async () => {
-  // Example for including static props in a Next.js function component page.
-  // Don't forget to include the respective types for any props passed into
-  // the component.
-  console.log('posts/index.tsx getStaticProps is running')
-  const spaceId = 'wtfpkq7pac0f';
-  const accessToken = 'L6i22uWPzNrhnPRtkLAbE5zW9Fiv7cULkhV4Q-eZc6s';
-  const environmentId = 'master';
-  const baseUrl = 'https://cdn.contentful.com'; 
+  const spaceId = process.env.spaceId;
+  const accessToken = process.env.accessToken;
+  const environmentId = process.env.environmentId;
+  const baseUrl = process.env.contentfulBaseUrl; 
 
   try {
     const allPosts = await fetch(`${baseUrl}/spaces/${spaceId}/environments/${environmentId}/entries?access_token=${accessToken}`);

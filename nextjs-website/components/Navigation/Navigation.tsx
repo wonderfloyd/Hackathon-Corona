@@ -15,7 +15,7 @@ const Nav = () => (
       </Link>{' '}
       |{' '}
       <Link href="/posts">
-        <a>Users List</a>
+        <a>Blog</a>
       </Link>
     </nav>
   </header>
