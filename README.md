@@ -1,5 +1,5 @@
 # Hackathon-Corona
-12 Hour Hachathon for developing End-2-End Applications in Javascript<br>
+Hachathon for developing End-2-End Applications in Javascript<br>
 Each Application is a FullStack Application with some functionality.
 
 The root project presents all Applications in the Hackathon.<br>
