@@ -8,11 +8,11 @@ type Props = {
 }
 
 const ListItem: React.FunctionComponent<Props> = ({ data }) => (
-  <Link href="/users/[id]" as={`/users/${data.id}`}>
+  <Link href="/posts/[id]" as={`/posts/${data.id}`}>
     <a>
       {data.id}: {data.name}
     </a>
   </Link>
 )
 
-export default ListItem
+export default ListItem;

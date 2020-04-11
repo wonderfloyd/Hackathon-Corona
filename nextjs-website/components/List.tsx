@@ -16,4 +16,4 @@ const List: React.FunctionComponent<Props> = ({ items }) => (
   </ul>
 )
 
-export default List
+export default List;

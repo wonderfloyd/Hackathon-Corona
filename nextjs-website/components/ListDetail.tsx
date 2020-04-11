@@ -15,4 +15,4 @@ const ListDetail: React.FunctionComponent<ListDetailProps> = ({
   </div>
 )
 
-export default ListDetail
+export default ListDetail;

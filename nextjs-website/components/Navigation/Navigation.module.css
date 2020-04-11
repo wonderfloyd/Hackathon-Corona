@@ -1,0 +1,12 @@
+.header {
+  height: 7%;
+  border-bottom: 1px solid #ccc;
+  
+  display: flex;
+  align-items: center;
+}
+
+.nav {
+  width: 85%;
+  margin: 0 auto;
+}

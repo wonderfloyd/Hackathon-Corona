@@ -1,11 +1,12 @@
 import React from 'react';
 import Link from 'next/link';
-import Layout from '../components/Layout';
+import Layout from '../components/Layout/Layout';
 
 const AboutPage: React.FunctionComponent = () => (
-  <Layout title="About | Next.js + TypeScript Example">
+  <Layout title="About">
     <h1>About</h1>
-    <p>This is the about page</p>
+    <p>So we are stuck at home for god knows how long...</p>
+    <p>Great! Lets start hacking!</p>
     <p>
       <Link href="/">
         <a>Go home</a>
@@ -14,4 +15,4 @@ const AboutPage: React.FunctionComponent = () => (
   </Layout>
 )
 
-export default AboutPage
+export default AboutPage;
