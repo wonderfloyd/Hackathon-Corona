@@ -1,4 +1,4 @@
-# Next.JS Website with Contentful Blog
+# 📜 Next.JS Website with Contentful Blog
 A website with 3 pages: Home, About and a Blog, plus auto generated pages for blog posts. Powered with the React based framework Next, and Contentful as a CMS.
 
 ## Tech Stack
