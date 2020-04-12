@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 // const fs = require('fs');
-const port = 3001;
+// const port = 3001;
 const cors = require('cors');
 const bcrypt = require('bcryptjs');
 const register = require('./controller/register')
@@ -9,17 +9,32 @@ const signin = require('./controller/signin')
 const profile = require('./controller/profile')
 const image = require('./controller/image')
 
+
+// ENV variables
+require('dotenv').config()
+const {HOST, USER, DB_NAME, PORT} = process.env
+// console.log(HOST, USER, DB_NAME)
 const knex = require('knex');
+// const db = knex({
+//   client: 'pg',
+//   connection: {
+//     host : '127.0.0.1',
+//     user : 'itai',
+//     password : '',
+//     database : 'photo-app'
+//   }
+// });
 const db = knex({
   client: 'pg',
   connection: {
-    host : '127.0.0.1',
-    user : 'itail',
+    host : HOST,
+    user : USER,
     password : '',
-    database : 'smart-brain'
+    database : DB_NAME
   }
 });
 
+db.select('*').from('users').then(data => console.log(data));
 
 app.use(express.json());
 app.use(cors());
@@ -60,8 +75,8 @@ app.put('/image', (req, res) => image.handleImage(req, res, db));
 app.post('/imageurl', (req, res) => image.handleApiCall(req, res));
 
 
-app.listen(port, () => {
-  console.log(`app is running on port ${port}`)
+app.listen(PORT, () => {
+  console.log(`app is running on port ${PORT}`)
 });
 
 
