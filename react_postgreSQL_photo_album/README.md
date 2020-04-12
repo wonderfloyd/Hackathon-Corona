@@ -41,7 +41,7 @@ $ sudo pacman -Syu
 $ sudo pacman -S postgresql
 $ systemctl start postgresql
 ```
-*Note if you want to enable on run time run: $  systemctl enable postgresql*
+*Note if you want to enable on startup run: $  systemctl enable postgresql*
 #### For Windows
 **very important windows users go throug this**
 [PostgreSQL Tutorial](https://www.youtube.com/watch?v=BLH3s5eTL4Y)
