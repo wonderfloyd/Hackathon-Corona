@@ -9,7 +9,7 @@ const AboutPage: React.FunctionComponent = () => (
     <p>Great! Lets start hacking!</p>
     <p>
       <a href="https://github.com/wonderfloyd/Hackathon-Corona/issues" target="_blank">
-        Get Started
+        Get Started 📜
       </a>
     </p>
     <p>
