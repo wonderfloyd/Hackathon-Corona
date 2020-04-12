@@ -16,7 +16,7 @@ exports.config = {
   multiCapabilities: [
     {
       browserName: '',                        // Leave as blank to run on Appium
-      appPackage: 'io.FlowBiz.IonicAngularChatSkeleton',         // Name of the package
+      appPackage: 'io.FlowBiz.IonicAngularChatroom',         // Name of the package
       appActivity: '.MainActivity',           // MainActivity is the activity to launch
       platformName: 'Android',
       deviceName: 'emulator-5554',
