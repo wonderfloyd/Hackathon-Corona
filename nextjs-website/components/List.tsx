@@ -1,18 +1,16 @@
 import * as React from 'react';
-import ListItem from './ListItem';
+import ListItem from './ListItem/ListItem';
 
 type Props = {
   posts: any[]
 }
 
 const List: React.FunctionComponent<Props> = ({ posts }) => (
-  <ul>
+  <div>
     {posts.map(post => (
-      <li key={post.sys.id}>
-        <ListItem data={post} />
-      </li>
+      <ListItem key={post.sys.id} data={post} />
     ))}
-  </ul>
+  </div>
 )
 
 export default List;

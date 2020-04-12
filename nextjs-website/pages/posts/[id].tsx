@@ -9,7 +9,7 @@ type Props = {
   errors?: string
 }
 
-export default class StaticPropsDetail extends React.Component<Props> {
+export default class BlogPost extends React.Component<Props> {
   render() {
     const { post, errors } = this.props
 
