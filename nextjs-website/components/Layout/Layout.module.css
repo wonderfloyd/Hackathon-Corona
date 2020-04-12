@@ -1,0 +1,25 @@
+.container {
+  position: relative;
+  min-height: 100vh;
+}
+
+.main {
+  width: 85%;
+  margin: 0 auto;
+}
+
+.main:before,
+.main:after {
+  content: '';
+  display: block;
+  height: 50px;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 50px;
+  text-align: center;
+}

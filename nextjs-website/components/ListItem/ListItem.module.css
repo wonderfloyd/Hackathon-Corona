@@ -1,0 +1,7 @@
+.item {
+  display: block;
+  margin: 3% 0;
+  padding: 0 3%;
+  border: 1px solid #fff;
+  border-radius: 5px;
+}
