@@ -12,7 +12,7 @@ const ListItem: React.FunctionComponent<Props> = ({ data }) => (
     <a className={styles.item}>
       <h3>{data.fields.title}</h3>
       <span>{new Date(data.sys.createdAt).toLocaleDateString()}</span>
-      <p>{data.fields.excerpt}</p>
+      <p>{(data.fields.excerpt && data.fields.excerpt.trim()) ? data.fields.excerpt : data.fields.postText.split('\n')[0]}</p>
     </a>
   </Link>
 )
