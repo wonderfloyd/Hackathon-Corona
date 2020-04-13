@@ -10,7 +10,7 @@ Each Application has a folder that contains all src files that are needed for in
 | 📷 [React PostgreSQL Photo Album](./react_postgreSQL_photo_album/README.md) | 3000,3001 | Postgres
 | 📽️ [Stencil Express MongoDB Video-Store](./Stencil_Express_MongoDB_VideoStore/README.md) |    4001 | MongoDB
 | 📬 [Ionic Angular Firebase Chatroom](./Ionic_Angular_Chatroom/README.md) |  8100 |  Firestore |  +Mobile
-| 📜 [Next.JS Contentful Website & Blog](./nextjs-website/README.md) | 3000 | Contentful CMS | 
+| 📜 [Next.JS Contentful Website & Blog](./nextjs-website/README.md) | dev: 3003, prod: 3004 | Contentful CMS | 
 ## <a id="adding-application">Adding Application to List</a>
 - Choose unique emoji 
 - Choose unique default ports (so we can run all applications together)

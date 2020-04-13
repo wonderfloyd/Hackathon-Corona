@@ -10,6 +10,8 @@
 
 import puppeteer, { Browser, Page } from 'puppeteer';
 
+const PORT = '3003'; // change to port 3004 to test prod build
+
 (async () => {
   // launch puppeteer browser
   const browser: Browser = await puppeteer.launch();
@@ -18,7 +20,7 @@ import puppeteer, { Browser, Page } from 'puppeteer';
   const page: Page = await browser.newPage();
 
   // navigate to Home page and wait for it to render
-  await page.goto('http://localhost:3000');
+  await page.goto(`http://localhost:${PORT}`); 
   await page.waitForSelector('title');
   
   // collect and log metrics from puppeteer's Page.metrics
@@ -38,7 +40,7 @@ import puppeteer, { Browser, Page } from 'puppeteer';
   const page: Page = await browser.newPage();
 
   // navigate to Home page and wait for it to render
-  await page.goto('http://localhost:3000');
+  await page.goto(`http://localhost:${PORT}`);
   await page.waitForSelector('title');
 
   // collect metrics from the browser API using puppeteer's Page.evaluate
