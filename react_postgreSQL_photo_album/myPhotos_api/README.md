@@ -1,2 +1,3 @@
-# the-brain-api
-server side for the brain project
+# MyPhoto App Server
+### architecture  
+expressjs
