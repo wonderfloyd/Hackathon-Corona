@@ -2,9 +2,9 @@
   "name": "nextjs-website-blog",
   "version": "1.0.0",
   "scripts": {
-    "dev": "next",
+    "dev": "next -p 3003",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p 3004",
     "type-check": "tsc",
     "test:perf": "cd tests && ts-node example.perf.ts",
     "test:perf:trace": "cd tests && ts-node example.trace.ts"

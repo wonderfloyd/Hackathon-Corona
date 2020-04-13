@@ -58,7 +58,7 @@ You'll need to do two things before you can run the tests:
 
 The `tests` folder includes two documented test files with example performance tests. To see what has to be done with tests visit this [issue](https://github.com/wonderfloyd/Hackathon-Corona/issues/40).  
 At the moment they collect some performance metrics and the Chrome DevTools' tracing of the Home page's loading time.  
-Before you run the tests, make sure you have the app served at port `3000`.  
+Before you run the tests, make sure you have the app served at the port specified in test files (either `3003` or `3004`).  
 To run the performance metrics collection:
 ```bash
 npm run test:perf

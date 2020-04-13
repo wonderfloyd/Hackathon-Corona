@@ -24,7 +24,7 @@ import puppeteer, { Browser, Page } from 'puppeteer';
   });
 
   // navigate to Home page
-  await page.goto('http://localhost:3000');
+  await page.goto('http://localhost:3003'); // change to port 3004 to test prod build
 
   // wait for one second more after page loaded to get a full profile
   await page.waitFor(1000);
