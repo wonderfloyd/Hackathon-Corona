@@ -24,7 +24,7 @@ const BlogIndex = ({ posts, errors }: Props) => {
   return (
     <Layout title="Posts List">
       <h1>Posts List</h1>
-      <List posts={posts} />
+      <List posts={posts} filter="" />
       <p>
         <Link href="/">
           <a>Go home</a>
