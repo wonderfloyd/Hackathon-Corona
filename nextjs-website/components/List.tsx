@@ -7,15 +7,21 @@ type Props = {
 
 const List: React.FunctionComponent<Props> = ({ posts }) => {
   const [filter, setFilter] = useState("");
+  
+  function filterString(text:string, filter:string) {
+    return text && text.toLowerCase().includes(filter.toLowerCase());
+  }
 
   return (
     <div>
       <p>
         Search:
-        <input id="search" onChange={(e) => setFilter(e.target.value)} />
+        <input onChange={(e) => setFilter(e.target.value)} />
       </p>
       {posts.filter(post => {
-        return post.fields.title.includes(filter);
+        return  filterString(post.fields.title, filter) ||
+                filterString(post.fields.postText, filter) ||
+                filterString(post.fields.excerpt, filter);
       }).map(post => (
         <ListItem key={post.sys.id} data={post} />
       ))}
