@@ -24,11 +24,7 @@ const BlogIndex = ({ posts, errors }: Props) => {
   return (
     <Layout title="Posts List">
       <h1>Posts List</h1>
-      <p>
-        Search:
-        <input id="search"/>
-      </p>
-      <List posts={posts} filter="" />
+      <List posts={posts} />
       <p>
         <Link href="/">
           <a>Go home</a>
