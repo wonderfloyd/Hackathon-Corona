@@ -1,19 +1,45 @@
 # Quasar Firebase Todo (quasar_firebase_todo)
 
-A simple Todo app with Quasar and firebase
+A simple Todo app with Quasar and Firebase
 
-## Install the dependencies
+## Tech Stack
+### Front end
+- [Quasar]()
+- [Vue]()
+
+### Back end
+- [Firebase]()
+
+## Set Up
+Install Quasar-Cli globally:
+```bash
+npm install -g @quasar/cli
+```
+
+If you didn't yet, clone the hackathon's repo:
+```bash
+git clone https://github.com/wonderfloyd/Hackathon-Corona.git
+cd Hackathon-Corona
+```
+
+If you did update your code from master:
+```bash
+git pull origin master
+```
+
+Install dependencies:
 ```bash
 npm install
 ```
 
-### Start the app in development mode (hot-code reloading, error reporting, etc.)
+## Start the app in development mode
+### For the web version:
 ```bash
 quasar dev
 ```
 
-## run on android
-on the first time:
+### Or to run on android
+On the first time:
 
 ```bash
 npm install -g cordova
@@ -21,7 +47,8 @@ quasar mode add cordova
 quasar dev -m android --ide
 ```
 
-Then in android studio build the project and run.  
+Then in android studio build the project and run.   
+   
 After that you can just have an enulator running or a device coneccted, and run:
 ```bash
 quasar dev -m cordova -T android
