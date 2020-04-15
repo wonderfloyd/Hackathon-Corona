@@ -4,10 +4,10 @@
 
 | Name   |      Port   |      Comments
 |----------|:-------------:|:-------------:|
-| [Container](./React_Micro_Frontends_FeedMe/container/README.md) | 5000 |  Application entry point micro-FE
-| [Content](./React_Micro_Frontends_FeedMe/content/README.md) |    5001 | Static Content Server
-| [Restaurant Order](./React_Micro_Frontends_FeedMe/restaurant-order/README.md) |    5002 |  Restaurant order micro-FE
-| [Browse](./React_Micro_Frontends_FeedMe/browse/README.md) |    5003 |  Restaurant selection micro-FE
+| [Container](./container/README.md) | 5000 |  Application entry point micro-FE
+| [Content](./content/README.md) |    5001 | Static Content Server
+| [Restaurant Order](./restaurant-order/README.md) |    5002 |  Restaurant order micro-FE
+| [Browse](./browse/README.md) |    5003 |  Restaurant selection micro-FE
 ## Tests
 Each Micro-FE (except content) has its tests suite
 
@@ -15,5 +15,5 @@ Each Micro-FE (except content) has its tests suite
 
 [![demo-architecture](https://martinfowler.com/articles/micro-frontends/demo-architecture.png)]
 # Set Up
-See [Container](./React_Micro_Frontends_FeedMe/container/README.md) installation and running
+See [Container](./container/README.md) installation and running
 
