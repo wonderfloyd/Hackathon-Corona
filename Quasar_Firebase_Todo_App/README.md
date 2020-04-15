@@ -43,11 +43,10 @@ On the first time:
 
 ```bash
 npm install -g cordova
-quasar mode add cordova
 quasar dev -m android --ide
 ```
 
-Then in android studio build the project and run.   
+This will open the project in Android Atudio. You can now run it by selecting a device/emulator and clicking the green play button.   
    
 After that you can just have an enulator running or a device coneccted, and run:
 ```bash
