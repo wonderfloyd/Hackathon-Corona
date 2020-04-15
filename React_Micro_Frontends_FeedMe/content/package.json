@@ -1,0 +1,19 @@
+{
+  "name": "@micro-frontends-demo/content",
+  "version": "1.0.0",
+  "description": "Static content for a micro frontends demo",
+  "author": "Cam Jackson <camjackson89@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "node buildData.js",
+    "start": "serve --port 5001 --cors content"
+  },
+  "devDependencies": {
+    "prettier": "^1.13.7",
+    "serve": "^6.5.2"
+  },
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": "all"
+  }
+}
