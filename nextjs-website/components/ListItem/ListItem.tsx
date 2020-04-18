@@ -8,7 +8,6 @@ type Props = {
 }
 
 const ListItem: React.FunctionComponent<Props> = ({ data }) => (
-      <p>
   <div className={styles.item}>
     <Link href="/posts/[id]" as={`/posts/${data.sys.id}`}>
       <a><h3>{data.fields.title}</h3></a>
