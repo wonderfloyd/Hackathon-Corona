@@ -46,13 +46,6 @@ export const isAuthenticated = (store) => {
   return store.state.auth.isAuthenticated;
 }
 
-/**
- * remove firebase auth token
- */
-export const logoutUser = () => {
-  return auth().signOut();
-}
-
 /** Handle the auth state of the user and
  * set it in the auth store module
  * @param  {Object} store - Vuex Store

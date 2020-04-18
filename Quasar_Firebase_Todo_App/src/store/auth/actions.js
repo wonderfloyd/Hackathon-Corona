@@ -6,7 +6,6 @@ export function routeUserToAuth () {
 
 export const userLogin = async function ({ commit }, payload) {
   const $fb = this.$fb
-  // const { email, password } = payload
   return $fb.loginWithGoogle()
 }
 
