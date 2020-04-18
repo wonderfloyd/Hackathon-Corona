@@ -2,10 +2,14 @@
   <q-page padding>
     
     <h4>
-      <q-btn @click="login">
-        כניסה
-      </q-btn>
+      כניסה
     </h4>
+    <q-btn
+      outline
+      label="כניסה עם גוגל"
+      icon="ion-logo-google"
+      @click="login"
+    />
     
   </q-page>
 </template>

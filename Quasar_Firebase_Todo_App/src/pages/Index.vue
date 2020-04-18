@@ -28,47 +28,15 @@
       <h4>אין משימות נוספות! 😎</h4>
     </div>
 
-    <q-list
-      v-else
-      separator
-      bordered
-    >
+    <TaskList v-else :tasks="tasks" :deleteTask="deleteTask" />
 
-      <q-item
-        v-for="(task, idx) in tasks"
-        :key="task.title"
-        @click="task.done = !task.done"
-        :class="{ 'done' : task.done }"
-        clickable
-        v-ripple
-      >
-        <q-item-section avatar>
-          <q-checkbox v-model="task.done" color="teal" class="no-pointer-events" />
-        </q-item-section>
-        <q-item-section>
-          <q-item-label>{{ task.title }}</q-item-label>
-        </q-item-section>
-        <q-item-section
-          v-if="task.done"
-          side
-        >
-          <q-btn
-            @click.stop="deleteTask(idx)"
-            flat
-            round
-            dense
-            color="primary"
-            icon="delete"
-          />
-        </q-item-section>
-      </q-item>
-
-    </q-list>
   </q-page>
 </template>
 
 <script>
+import TaskList from '../components/TaksList';
 export default {
+  components: { TaskList },
   data() {
     return {
       newTask: '',
@@ -94,13 +62,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-  .done {
-    .q-item__label {
-      text-decoration: line-through;
-      color: #888;
-    }
-  }
-
   div > h4 {
     color: #69378e;
   }
