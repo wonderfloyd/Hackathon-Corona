@@ -7,7 +7,6 @@ export default ({ router, store, Vue }) => {
   // Tell the application what to do when the
   // authentication state has changed
   firebaseService.auth().onAuthStateChanged((user) => {
-    console.log('onAuthStateChanged user: ', user)
     firebaseService.handleOnAuthStateChanged(store, user);
   }, (error) => {
     console.error(error);

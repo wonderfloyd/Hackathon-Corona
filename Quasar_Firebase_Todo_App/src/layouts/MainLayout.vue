@@ -25,13 +25,34 @@
     >
       <q-scroll-area class="fit">
         <q-list padding class="menu-list">
-          <q-item clickable v-ripple to="/auth" exact>
+          <q-item
+            v-if="isAuth"
+            clickabl
+            v-ripple
+            to="/auth"
+            exact
+          >
             <q-item-section avatar>
               <q-icon name="account_circle" />
             </q-item-section>
 
             <q-item-section>
               הרשמה \ התחברות
+            </q-item-section>
+          </q-item>
+
+          <q-item
+            v-else
+            clickable
+            v-ripple
+            @click="logoutUser()"
+          >
+            <q-item-section avatar>
+              <q-icon name="account_circle" />
+            </q-item-section>
+
+            <q-item-section>
+              יציאה
             </q-item-section>
           </q-item>
 
@@ -67,6 +88,8 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
+
 export default {
   name: 'MainLayout',
 
@@ -75,7 +98,19 @@ export default {
   data () {
     return {
       leftDrawerOpen: false,
+      isAuth: false
     }
+  },
+
+  computed: {
+    setAuth() {
+      return this.isAuth = this.$store.state.auth.isAuthenticated;
+    }
+  },
+
+  methods: {
+    ...mapActions('auth', ['logoutUser'])
   }
+
 }
 </script>
