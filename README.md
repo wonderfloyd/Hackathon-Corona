@@ -10,6 +10,7 @@ Each Application has a folder that contains all src files that are needed for in
 | 📷 [React PostgreSQL Photo Album](./react_postgreSQL_photo_album/README.md) | 3000,3001 | Postgres
 | 📜 [Next.JS Contentful Website & Blog](./nextjs-website/README.md) | dev: 3003, prod: 3004 | Contentful CMS | 
 | 📽️ [Stencil Express MongoDB Video-Store](./Stencil_Express_MongoDB_VideoStore/README.md) |    4001 | MongoDB
+| 🅰️ [Angular Cook-Book](./angular-cookbook/README.md) |    4200 | 
 | 🍱 [React Micro Frontends FeedMe](./React_Micro_Frontends_FeedMe/README.md) |    5000 - 5003 |  | Micro FEs
 | 📬 [Ionic Angular Firebase Chatroom](./Ionic_Angular_Chatroom/README.md) |  8100 |  Firestore |  +Mobile
 ## <a id="adding-application">Adding Application to List</a>
