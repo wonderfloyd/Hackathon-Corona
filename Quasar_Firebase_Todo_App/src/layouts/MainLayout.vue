@@ -26,7 +26,7 @@
       <q-scroll-area class="fit">
         <q-list padding class="menu-list">
           <q-item
-            v-if="isAuth"
+            v-if="!isAuth"
             clickabl
             v-ripple
             to="/auth"
@@ -97,14 +97,15 @@ export default {
 
   data () {
     return {
-      leftDrawerOpen: false,
-      isAuth: false
+      leftDrawerOpen: false
     }
   },
 
   computed: {
-    setAuth() {
-      return this.isAuth = this.$store.state.auth.isAuthenticated;
+    isAuth: {
+      get: function() {
+        return this.$store.state.auth.isAuthenticated;
+      }
     }
   },
 
