@@ -25,7 +25,7 @@
     >
       <q-scroll-area class="fit">
         <q-list padding class="menu-list">
-          <q-item clickable v-ripple>
+          <q-item clickable v-ripple to="/auth" exact>
             <q-item-section avatar>
               <q-icon name="account_circle" />
             </q-item-section>
