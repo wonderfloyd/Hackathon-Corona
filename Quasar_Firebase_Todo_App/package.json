@@ -16,7 +16,8 @@
     "quasar": "latest"
   },
   "devDependencies": {
-    "@quasar/app": "latest"
+    "@quasar/app": "latest",
+    "@quasar/quasar-app-extension-dotenv": "^1.0.1"
   },
   "engines": {
     "node": ">= 10.18.1",

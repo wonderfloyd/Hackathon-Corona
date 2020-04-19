@@ -1,7 +1,16 @@
 import firebaseService from '../services/firebase';
 
 export default ({ router, store, Vue }) => {
-  const config = process.env.FIREBASE_CONFIG
+  const config = {
+    apiKey: process.env.FIREBASE_API_KEY,
+    authDomain: process.env.FIREBASE_AUTH_DOMAIN,
+    databaseURL: process.env.FIREBASE_DB_URL,
+    projectId: process.env.FIREBASE_PROJECT_ID,
+    storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: process.env.FIREBASE_MESSAGING_ID,
+    appId: process.env.FIREBASE_API_ID
+  }
+
   firebaseService.fBInit(config)
 
   // Tell the application what to do when the

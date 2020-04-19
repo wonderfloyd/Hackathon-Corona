@@ -80,18 +80,6 @@ module.exports = function (/* ctx */) {
       extendWebpack (cfg) {
       },
 
-      env: { 
-        FIREBASE_CONFIG: JSON.stringify({
-          apiKey: "AIzaSyAEdXV0zG27kK26LJ5G322KpK_bbbfzbHY",
-          authDomain: "quasar-firebase-todo-app.firebaseapp.com",
-          databaseURL: "https://quasar-firebase-todo-app.firebaseio.com",
-          projectId: "quasar-firebase-todo-app",
-          storageBucket: "quasar-firebase-todo-app.appspot.com",
-          messagingSenderId: "361771384835",
-          appId: "1:361771384835:web:df62f9edc10beee45b0e36"
-        })
-      }
-
     },
 
     // Full list of options: https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-devServer
