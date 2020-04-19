@@ -1,34 +1,43 @@
-# Quasar Firebase Todo (quasar_firebase_todo)
+# 📋 Quasar Firebase Todo
 
 A simple Todo app with Quasar and Firebase
 
 ## Tech Stack
 ### Front end
-- [Quasar]()
-- [Vue]()
+- [Quasar](https://quasar.dev/)
+- [Vue](https://vuejs.org/)
+- [VueX](https://vuex.vuejs.org/)
 
 ### Back end
-- [Firebase]()
+- [Firebase](https://firebase.google.com/)
 
 ## Set Up
-Install Quasar-Cli globally:
+### Firebase
+1. Go to [Firebase console](https://console.firebase.google.com/).
+2. Click on the _Add projet_ tile, name your project whatever you like, and click _Continue_.
+3. Disable the _Google Analytics_ option and create project.
+4. Click on the `</>` icon to add a web app to your project. Name it whatever you like and click _Register app_. 
+
+### Quasar
+1. Install Quasar-Cli globally:
 ```bash
 npm install -g @quasar/cli
 ```
 
-If you didn't yet, clone the hackathon's repo:
+2. If you didn't yet, clone the hackathon's repo:
 ```bash
 git clone https://github.com/wonderfloyd/Hackathon-Corona.git
 cd Hackathon-Corona
 ```
 
-If you did update your code from master:
+3. If you did, update your code from master:
 ```bash
 git pull origin master
 ```
 
-Install dependencies:
+4. Navigate to the app's folder, and install the dependencies:
 ```bash
+cd Quasar_Firebase_todo_app
 npm install
 ```
 

@@ -102,10 +102,8 @@ export default {
   },
 
   computed: {
-    isAuth: {
-      get: function() {
-        return this.$store.state.auth.isAuthenticated;
-      }
+    isAuth: function() {
+      return this.$store.state.auth.isAuthenticated;
     }
   },
 
