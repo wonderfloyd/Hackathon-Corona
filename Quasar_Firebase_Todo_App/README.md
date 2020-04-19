@@ -11,12 +11,18 @@ A simple Todo app with Quasar and Firebase
 ### Back end
 - [Firebase](https://firebase.google.com/)
 
+### Mobile Integration
+- [Quasar - Cordova](https://quasar.dev/quasar-cli/developing-cordova-apps/introduction)
+
 ## Set Up
 ### Firebase
 1. Go to [Firebase console](https://console.firebase.google.com/).
 2. Click on the _Add projet_ tile, name your project whatever you like, and click _Continue_.
 3. Disable the _Google Analytics_ option and create project.
-4. Click on the `</>` icon to add a web app to your project. Name it whatever you like and click _Register app_. 
+4. Click on the `</>` icon to add a web app to your project. Name it whatever you like and click _Register app_.
+5. Copy the app config values into the `.env.example` file in the root of the app's folder, and delete the `.example` suffix. __The file should be ignored by .gitignore__.
+6. Click on the _Authentication_ tab in the left menu, then on _Sign-in method_.
+7. In the _Sign-in providers_ list, click on _Google_, enable it and save.
 
 ### Quasar
 1. Install Quasar-Cli globally:
@@ -37,8 +43,14 @@ git pull origin master
 
 4. Navigate to the app's folder, and install the dependencies:
 ```bash
-cd Quasar_Firebase_todo_app
+cd Quasar_Firebase_Todo_App
 npm install
+```
+
+### Set up the Android project
+1. Install Cordova globally:
+```bash
+npm install -g cordova
 ```
 
 ## Start the app in development mode
@@ -48,19 +60,13 @@ quasar dev
 ```
 
 ### Or to run on android
-On the first time:
-
+1. Open the project in Android Studio
 ```bash
-npm install -g cordova
 quasar dev -m android --ide
 ```
+_Note: The first time you run this it will take a little longer than usual to build and install the project and all of its dependencies._
 
-This will open the project in Android Atudio. You can now run it by selecting a device/emulator and clicking the green play button.   
-   
-After that you can just have an enulator running or a device coneccted, and run:
-```bash
-quasar dev -m cordova -T android
-```
+2. Wait for Android Studio to open and build the project, and then click the green play button on the top to run the app on a selected device / emulator.
 
 ### Build the app for production
 ```bash

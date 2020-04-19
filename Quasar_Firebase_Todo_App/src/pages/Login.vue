@@ -20,10 +20,10 @@ import { mapActions } from 'vuex';
 export default {
   name: 'Login',
   methods: {
-    ...mapActions('auth', ['userLogin']),
+    ...mapActions('auth', ['userGoogleLogin']),
     async login() {
       try {
-        const user = await this.userLogin();
+        const user = await this.userGoogleLogin();
         console.log('User logged in: ', user.displayName);
         this.$router.push({
           path: '/'

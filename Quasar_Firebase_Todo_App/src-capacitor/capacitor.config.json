@@ -1,7 +1,0 @@
-{
-  "appId": "io.FlowBiz.QuasarFirebaseTodo",
-  "appName": "Quasar Firebase Todo",
-  "bundledWebRuntime": false,
-  "npmClient": "npm",
-  "webDir": "www"
-}
