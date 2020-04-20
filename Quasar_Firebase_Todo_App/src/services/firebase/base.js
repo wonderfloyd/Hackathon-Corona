@@ -51,13 +51,21 @@ export const isAuthenticated = (store) => {
  * @param  {Object} store - Vuex Store
  * @param  {Object} currentUser - Firebase currentUser
  */
-export const handleOnAuthStateChanged = (store, currentUser) => {
+export const handleOnAuthStateChanged = async (store, currentUser) => {
+
   const initialAuthState = isAuthenticated(store);
+  
   // Save to the store
   store.commit('auth/setAuthState', {
     isAuthenticated: currentUser !== null,
-    isReady: true
+    isReady: true,
+    uid: (currentUser ? currentUser.uid : '')
   });
+
+  // Get & bind the current user
+  if (store.state.auth.isAuthenticated) {
+    await store.dispatch('user/getCurrentUser', currentUser.uid)
+  }
 
   // If the user loses authentication route
   // them to the login page
@@ -79,6 +87,7 @@ export const routerBeforeEach = async (router, store) => {
       await ensureAuthIsInitialized(store)
       if (to.matched.some(record => record.meta.requiresAuth)) {
         if (isAuthenticated(store)) {
+          await store.dispatch('auth/registerNewUsers');
           next()
         } else {
           alert('Please Log In.');

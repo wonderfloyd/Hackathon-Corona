@@ -11,13 +11,22 @@ export const loginWithGoogle = async () => {
   console.log('loginWithGoogle is running');
   try {
     firebase.auth().signInWithRedirect(provider);
-    const result = await firebase.auth().getRedirectResult();
-    // You can get a Google Access Token with "result.credential.accessToken".
-    // and use it to access the Google API.
-    return result.user
+    return;
   } catch (err) {
     console.log('google login error: ', err);
   }
+}
+
+/**
+ * Gets the result of google login with redirect
+ * 
+ * @returns {Promise} UserCredentials if redirected from login, null otherwise
+ */
+export const getGoogleLoginResult = async () => {
+  const result = await firebase.auth().getRedirectResult();
+  // You can get a Google Access Token with "result.credential.accessToken".
+  // and use it to access the Google API.
+  return result.user;
 }
 
 /**

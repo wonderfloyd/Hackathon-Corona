@@ -13,7 +13,8 @@
   "dependencies": {
     "@quasar/extras": "^1.0.0",
     "firebase": "^7.14.1",
-    "quasar": "latest"
+    "quasar": "latest",
+    "vuexfire": "^3.2.2"
   },
   "devDependencies": {
     "@quasar/app": "latest",

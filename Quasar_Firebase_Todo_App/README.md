@@ -2,7 +2,7 @@
 
 A simple Todo app with Quasar and Firebase
 
-This app is mostly based on two tutorials:
+This app is loosely based on two tutorials:
 1. For setting up the Quasar project and building the Todo app see [here](https://www.youtube.com/watch?v=GV-D85D9KJQ).
 2. For integration with VueX and Firebase see [here](https://dev.to/quasar/to-the-stars-with-quasar-firebase-initial-service-structure-1fcf).
 
@@ -11,6 +11,7 @@ This app is mostly based on two tutorials:
 - [Quasar](https://quasar.dev/)
 - [Vue](https://vuejs.org/)
 - [VueX](https://vuex.vuejs.org/)
+- [Vuexfire](https://vuefire.vuejs.org/vuexfire/)
 
 ### Back end
 - [Firebase](https://firebase.google.com/)
@@ -33,6 +34,19 @@ This app is mostly based on two tutorials:
 8. In the _Sign-in method_ tab, scroll down to _Authorized domains_, and add `10.0.0.5` to them.
 
 #### Cloud Firestore / DB
+9. Click on _Database_ in the left menu and then _Create database_ to create a Cloud Firestore instance.
+10. Make sure _Start in propduction mode_ is selected and click _Next_.
+11. Choose a location.
+12. In Database section, click the _Rules_ tab and replace the default rule with this one: 
+```
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /{document=**} {
+      allow read, write: if request.auth.uid != null;
+    }
+  }
+}
+```
 
 ### Quasar
 1. Install Quasar-Cli globally:
