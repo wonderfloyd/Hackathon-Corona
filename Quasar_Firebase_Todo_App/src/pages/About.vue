@@ -1,5 +1,5 @@
 <template>
-  <q-page class="about-page" style="min-height: 100%">
+  <q-page padding>
     <h2>אודות</h2>
     <p>אפליקציה לניהול משימות</p>
     <p>
@@ -18,10 +18,3 @@ export default {
   
 }
 </script>
-
-<style scoped>
-  .about-page {
-    width: 85%;
-    margin: 0 auto;
-  }
-</style>

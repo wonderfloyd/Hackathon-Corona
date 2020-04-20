@@ -51,7 +51,7 @@ export const isAuthenticated = (store) => {
  * @param  {Object} store - Vuex Store
  * @param  {Object} currentUser - Firebase currentUser
  */
-export const handleOnAuthStateChanged = async (store, currentUser) => {
+export const handleOnAuthStateChanged = (store, currentUser) => {
   const initialAuthState = isAuthenticated(store);
   // Save to the store
   store.commit('auth/setAuthState', {
