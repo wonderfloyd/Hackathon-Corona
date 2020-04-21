@@ -19,7 +19,7 @@ This app is loosely based on two tutorials:
 ### Mobile Integration
 - [Quasar - Cordova](https://quasar.dev/quasar-cli/developing-cordova-apps/introduction)
 
-![diagram](https://github.com/wonderfloyd/Hackathon-Corona/blob/Quasar_Firebase_Todo_App/src/assets/QuasarFirebaseTodoAppDiagram.jpg)
+![diagram](https://github.com/wonderfloyd/Hackathon-Corona/blob/ori_quasar_firebase_todo_app/Quasar_Firebase_Todo_App/src/assets/QuasarFirebaseTodoAppDiagram.jpg)
 
 ## Set Up
 ### Firebase
