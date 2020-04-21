@@ -38,7 +38,7 @@ export const registerNewUsers = async function(store, payload) {
     // Check if user is alread registered
     if (!isUser) {
       console.log('registering user: ', displayName);
-      const userRef = $fb.userRef('users', uid);
+      const userRef = $fb.userRef(uid);
       return addUserToUsersCollection({ uid, email, displayName }, userRef);
     }
 
