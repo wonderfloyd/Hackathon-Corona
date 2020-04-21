@@ -10,15 +10,22 @@ import 'firebase/storage'
  * @return {Interface} returns Firestore
  */
 export const firestore = () => {
-  return firebase.firestore()
+  return firebase.firestore();
 }
 
-/**
- * @param {String} collectionName - Firestore collection name
- * @param {String} id - Uid to assign to a doc in firestore collection
- */
-export const userRef = (collectionName, id) => {
-  return firestore().collection(collectionName).doc(id)
+// ref to user document
+export const userRef = (id) => {
+  return firestore().collection('users').doc(id);
+}
+
+// ref to user's tasks in task collection
+export const userTasksRef = (userId) => {
+  return firestore().collection('tasks').where('userId', '==', userId);
+}
+
+// ref to tasks collection
+export const tasksRef = () => {
+  return firestore().collection('tasks');
 }
 
 /**
@@ -28,17 +35,51 @@ export const userRef = (collectionName, id) => {
  */
 export const isUserRegistered = async (id) => {
   try {
-    const data = await userRef('users', id).get();
+    const data = await userRef(id).get();
     const user = data.data();
     return user ? true : false;
   } catch (err) {
-    console.log('unable to get user from db: ', err)
+    console.log('unable to get user from db: ', err);
   }
 }
 
 /**
- * @param  {String} storageLocation - Location on Firebase Storage
+ * 
+ * @param {Object} newTask new task to be added
  */
-export const storageRef = (storageLocation) => {
-  return firebase.storage().ref(storageLocation)
+export const addNewTask = async (newTask) => {
+  try {
+    const taskAdded = await tasksRef().add(newTask);
+    console.log(`task id: ${taskAdded.id} added`)
+  } catch (err) {
+    console.log('failed adding new task: ', err);
+  } 
 }
+
+/**
+ * 
+ * @param {string} taskId task id to be deleted
+ */
+export const deleteTask = async (taskId) => {
+  try {
+    await tasksRef().doc(taskId).delete();
+    console.log(`task id: ${taskId} deleted`)
+  } catch (err) {
+    console.log('failed deleting task: ', err);
+  } 
+}
+
+/**
+ * 
+ * @param {Object} task the task to be toggled
+ * @param {Boolean} newState new task state
+ */
+export const toggleTaskDone = async (task, newState) => {
+  try {
+    await tasksRef().doc(task.id).update({ done: newState })
+    console.log('task toggled');
+  } catch (err) {
+    console.log('toggle failed: ', err);
+  }
+}
+

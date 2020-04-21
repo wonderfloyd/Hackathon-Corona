@@ -62,15 +62,17 @@ export const handleOnAuthStateChanged = async (store, currentUser) => {
     uid: (currentUser ? currentUser.uid : '')
   });
 
-  // Get & bind the current user
+  // Get & bind the current user and tasks
   if (store.state.auth.isAuthenticated) {
-    await store.dispatch('user/getCurrentUser', currentUser.uid)
+    await store.dispatch('user/getCurrentUser', currentUser.uid);
+    await store.dispatch('tasks/getCurrentUserTasks', currentUser.uid);
+    console.log('user tasks : ', store.state.tasks.userTasks)
   }
 
   // If the user loses authentication route
   // them to the login page
   if (!currentUser && initialAuthState) {
-    store.dispatch('auth/routeUserToAuth')
+    store.dispatch('auth/routeUserToAuth');
   }
 }
 

@@ -5,15 +5,15 @@
   >
 
     <q-item
-      v-for="(task, idx) in tasks"
+      v-for="(task) in tasks"
       :key="task.title"
-      @click="task.done = !task.done"
+      @click="toggleTask(task, !task.done)"
       :class="{ 'done' : task.done }"
       clickable
       v-ripple
     >
       <q-item-section avatar>
-        <q-checkbox v-model="task.done" color="teal" class="no-pointer-events" />
+        <q-checkbox :value="task.done" color="teal" class="no-pointer-events" />
       </q-item-section>
       <q-item-section>
         <q-item-label>{{ task.title }}</q-item-label>
@@ -23,7 +23,7 @@
         side
       >
         <q-btn
-          @click.stop="deleteTask(idx)"
+          @click.stop="deleteTask(task.id)"
           flat
           round
           dense
@@ -39,7 +39,7 @@
 <script>
 export default {
   name: 'TaskList',
-  props: ['tasks', 'deleteTask']
+  props: ['tasks', 'deleteTask', 'toggleTask']
 }
 </script>
 

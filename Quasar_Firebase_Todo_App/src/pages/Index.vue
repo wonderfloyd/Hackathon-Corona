@@ -2,10 +2,12 @@
   <q-page class="q-pa-lg">
     <h3 class="q-mt-none">רשימת מטלות</h3>
 
+    <p v-if="currentUser">{{ currentUser.email }}</p>
+
     <div class="row q-pa-sm q-mb-sm">
       <q-input
-        @keyup.enter="addTask"
-        v-model="newTask"
+        @keyup.enter="addNewTask"
+        v-model="title"
         class="col"
         color="teal"
         filled
@@ -14,7 +16,7 @@
       >
         <template v-slot:append>
           <q-btn
-            @click="addTask"
+            @click="addNewTask"
             round
             dense
             flat
@@ -24,39 +26,38 @@
       </q-input>
     </div>
 
-    <div v-if="!tasks.length" class="flex flex-center">
+    <div v-if="!userTasks" class="flex flex-center">
       <h4>אין משימות נוספות! 😎</h4>
     </div>
 
-    <TaskList v-else :tasks="tasks" :deleteTask="deleteTask" />
+    <TaskList v-else :tasks="userTasks" :deleteTask="deleteTask" :toggleTask="toggleTaskDone" />
 
   </q-page>
 </template>
 
 <script>
+import { mapGetters, mapActions } from 'vuex'; 
 import TaskList from '../components/TaksList';
+import { getUserTasks } from '../services/firebase/db.js';
 export default {
   components: { TaskList },
   data() {
     return {
-      newTask: '',
-      tasks: []
+      title: ''
     }
   },
   methods: {
-    deleteTask(idx) {
-      this.tasks.splice(idx, 1);
-    },
-    addTask() {
-      console.log('addTask: ', this.newTask);
-      if (this.newTask) {
-        this.tasks.push({
-          title: this.newTask,
-          done: false
-        });
-        this.newTask = '';
+    ...mapActions('tasks', ['toggleTaskDone', 'addTask', 'deleteTask']),
+    addNewTask() {
+      if (this.title) {
+        this.addTask({ title: this.title, userId: this.currentUser.id })
+        this.title = '';
       }
     }
+  },
+  computed: {
+    ...mapGetters('user', ['currentUser']),
+    ...mapGetters('tasks', ['userTasks'])
   }
 }
 </script>

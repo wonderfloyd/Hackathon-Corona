@@ -47,6 +47,9 @@ service cloud.firestore {
   }
 }
 ```
+13. In your Firestore _Data_ tab you'll need to add two collections, one for users and one for tasks. For each do the following: 
+    - Click _Start collection_ at the top of the left most column, and enter `users` / `tasks` as the collection's id.
+    - It's mandatory to start a collection with a document, so add whatever you like, and delete it afterwards. 
 
 ### Quasar
 1. Install Quasar-Cli globally:

@@ -1,3 +1,5 @@
+import { firestoreAction } from 'vuexfire';
+
 import User from '../../models/User.js'
 
 const addUserToUsersCollection = async (state, userRef) => {
@@ -13,7 +15,7 @@ export function routeUserToAuth () {
   });
 }
 
-export const userGoogleLogin = async function(store, payload) {
+export const userGoogleLogin = async function({ commit }, payload) {
   const $fb = this.$fb;
 
   try {
@@ -43,11 +45,15 @@ export const registerNewUsers = async function(store, payload) {
     console.log('user exists: ', displayName);
     return;
   }
+  
   return res;
 }
 
 export const logoutUser = async function ({ commit }, payload) {
-  const $fb = this.$fb;
-  await $fb.logoutUser();
+  await firestoreAction(({ unbindFirestoreRef }) => { unbindFirestoreRef('users') });
+  await firestoreAction(({ unbindFirestoreRef }) => { unbindFirestoreRef('tasks') });
+  commit('user/setCurrentUserData', null, { root: true });
+  commit('tasks/setCurrentUserTasks', [], { root: true });
+  this.$fb.logoutUser()
 }
 

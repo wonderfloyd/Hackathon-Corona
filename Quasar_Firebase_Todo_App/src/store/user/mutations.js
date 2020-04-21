@@ -1,4 +1,3 @@
-/*
-export function someMutation (state) {
+export const setCurrentUserData = (state, data) => {
+  state.currentUser = data;
 }
-*/
