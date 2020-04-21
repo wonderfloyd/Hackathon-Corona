@@ -10,8 +10,9 @@ Each Application has a folder that contains all src files that are needed for in
 | 📷 [React PostgreSQL Photo Album](./react_postgreSQL_photo_album/README.md) | 3000,3001 | Postgres
 | 📽️ [Stencil Express MongoDB Video-Store](./Stencil_Express_MongoDB_VideoStore/README.md) |    4001 | MongoDB
 | 🍱 [React Micro Frontends FeedMe](./React_Micro_Frontends_FeedMe/README.md) |    5000 - 5003 |  | Micro FEs
-| 📬 [Ionic Angular Firebase Chatroom](./Ionic_Angular_Chatroom/README.md) |  8100 |  Firestore |  +Mobile
+| 📬 [Ionic Angular Firebase Chatroom](./Ionic_Angular_Chatroom/README.md) |  8100 |  Firebase Real Time DB |  +Mobile
 | 📜 [Next.JS Contentful Website & Blog](./nextjs-website/README.md) | dev: 3003, prod: 3004 | Contentful CMS | 
+| 📋 [Quasar (Vue) Firebase Todo App](./Quasar_Firebase_Todo_App/README.md) | 8080 | Firebase Cloud Firestore | +Mobile
 ## <a id="adding-application">Adding Application to List</a>
 - Choose unique emoji 
 - Choose unique default ports (so we can run all applications together)
