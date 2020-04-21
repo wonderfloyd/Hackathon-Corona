@@ -26,7 +26,7 @@
       </q-input>
     </div>
 
-    <div v-if="!userTasks" class="flex flex-center">
+    <div v-if="!userTasks.length" class="flex flex-center">
       <h4>אין משימות נוספות! 😎</h4>
     </div>
 

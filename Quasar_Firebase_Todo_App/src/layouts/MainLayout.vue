@@ -26,7 +26,7 @@
       <q-scroll-area class="fit">
         <q-list padding class="menu-list">
           <q-item
-            v-if="!isAuth"
+            v-if="!isAuthenticated"
             clickabl
             v-ripple
             to="/auth"
@@ -88,7 +88,7 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex';
+import { mapActions, mapGetters } from 'vuex';
 
 export default {
   name: 'MainLayout',
@@ -102,9 +102,7 @@ export default {
   },
 
   computed: {
-    isAuth: function() {
-      return this.$store.state.auth.isAuthenticated;
-    }
+    ...mapGetters('auth', ['isAuthenticated'])
   },
 
   methods: {

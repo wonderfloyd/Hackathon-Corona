@@ -33,10 +33,10 @@ export const registerNewUsers = async function(store, payload) {
   // Check if redirecting from google login 
   if (res) {
     const { uid, email, displayName } = res;
-    const isUser = await $fb.isUserRegistered(uid);
+    const userExists = await $fb.isUserRegistered(uid);
     
     // Check if user is alread registered
-    if (!isUser) {
+    if (!userExists) {
       console.log('registering user: ', displayName);
       const userRef = $fb.userRef(uid);
       return addUserToUsersCollection({ uid, email, displayName }, userRef);

@@ -82,6 +82,10 @@ npm install
 npm install -g cordova
 ```
 
+### Android
+1. Download *Android Studio* from the [Android website](https://developer.android.com/studio/).
+2. Follow the instructions in [Quasar's guide](https://quasar.dev/quasar-cli/developing-cordova-apps/preparation#Android-setup) and/or in [Android's guide](https://developer.android.com/studio/install) to set everything up.
+
 ## Start the app in development mode
 ### For the web version:
 ```bash
