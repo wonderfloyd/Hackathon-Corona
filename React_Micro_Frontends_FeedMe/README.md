@@ -11,13 +11,9 @@
 ## Tests
 Each Micro-FE (except content) has its tests suite
 
-![Image20200416125214](https://user-images.githubusercontent.com/12394551/79442453-38785200-7fe1-11ea-9d5d-1539cd5a86da.png)
+![Image20200415194007](https://user-images.githubusercontent.com/12394551/79363728-f30c4400-7f50-11ea-8b8e-714e3339b98d.png)
 
-![demo-architecture](https://martinfowler.com/articles/micro-frontends/demo-architecture.png)
-
-Micro frontend development
-![micro-frontend-development](https://martinfowler.com/articles/micro-frontends/deployment.png)
-
+[![demo-architecture](https://martinfowler.com/articles/micro-frontends/demo-architecture.png)]
 # Set Up
 See [Container](./container/README.md) installation and running
 

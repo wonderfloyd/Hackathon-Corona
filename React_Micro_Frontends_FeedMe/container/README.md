@@ -42,10 +42,6 @@ Run the app as a standalone, outside of the container.
 http://127.0.0.1:5000
 ### Expected Page
 ![Image20200415180537](https://user-images.githubusercontent.com/12394551/79353478-c3a30a80-7f43-11ea-8382-6659343131dd.png)
-
-Console View
-![Image20200416122947](https://user-images.githubusercontent.com/12394551/79442603-71b0c200-7fe1-11ea-9b86-a13bd896a607.png)
-
 # Unit Tests
 The Feed Me Container uses the [React Jest](https://create-react-app.dev/docs/running-tests) test runner.<br> 
 It contain 2 tests in the /browse/src/__tests__ folder:
