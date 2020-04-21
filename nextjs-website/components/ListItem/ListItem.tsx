@@ -8,13 +8,13 @@ type Props = {
 }
 
 const ListItem: React.FunctionComponent<Props> = ({ data }) => (
-  <Link href="/posts/[id]" as={`/posts/${data.sys.id}`}>
-    <a className={styles.item}>
-      <h3>{data.fields.title}</h3>
-      <span>{new Date(data.sys.createdAt).toLocaleDateString()}</span>
-      <p>{(data.fields.excerpt && data.fields.excerpt.trim()) ? data.fields.excerpt : data.fields.postText.split('\n')[0]}</p>
-    </a>
-  </Link>
+  <div className={styles.item}>
+    <Link href="/posts/[id]" as={`/posts/${data.sys.id}`}>
+      <a><h3>{data.fields.title}</h3></a>
+    </Link>
+    <span>{new Date(data.sys.createdAt).toLocaleDateString()}</span>
+    <p>{(data.fields.excerpt && data.fields.excerpt.trim()) ? data.fields.excerpt : data.fields.postText.split('\n')[0]}</p>
+  </div>
 )
 
 export default ListItem;

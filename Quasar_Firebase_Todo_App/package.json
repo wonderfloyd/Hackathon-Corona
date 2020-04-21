@@ -1,0 +1,31 @@
+{
+  "name": "quasar_firebase_todo",
+  "version": "0.0.1",
+  "description": "A simple Todo app with Quasar and firebase",
+  "productName": "Quasar Firebase Todo",
+  "cordovaId": "io.FlowBiz.QuasarFirebaseTodo",
+  "capacitorId": "",
+  "author": "FlowBiz",
+  "private": true,
+  "scripts": {
+    "test": "echo \"No test specified\" && exit 0"
+  },
+  "dependencies": {
+    "@quasar/extras": "^1.0.0",
+    "firebase": "^7.14.1",
+    "quasar": "latest",
+    "vuexfire": "^3.2.2"
+  },
+  "devDependencies": {
+    "@quasar/app": "latest",
+    "@quasar/quasar-app-extension-dotenv": "^1.0.1"
+  },
+  "engines": {
+    "node": ">= 10.18.1",
+    "npm": ">= 6.13.4",
+    "yarn": ">= 1.21.1"
+  },
+  "browserslist": [
+    "last 1 version, not dead, ie >= 11"
+  ]
+}

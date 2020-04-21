@@ -12,7 +12,8 @@ Each Application has a folder that contains all src files that are needed for in
 | 📽️ [Stencil Express MongoDB Video-Store](./Stencil_Express_MongoDB_VideoStore/README.md) |    4001 | MongoDB
 | 🅰️ [Angular Cook-Book](./angular-cookbook/README.md) |    4200 | 
 | 🍱 [React Micro Frontends FeedMe](./React_Micro_Frontends_FeedMe/README.md) |    5000 - 5003 |  | Micro FEs
-| 📬 [Ionic Angular Firebase Chatroom](./Ionic_Angular_Chatroom/README.md) |  8100 |  Firestore |  +Mobile
+| 📋 [Quasar (Vue) Firebase Todo App](./Quasar_Firebase_Todo_App/README.md) | 8080 | Firebase Cloud Firestore | +Mobile
+| 📬 [Ionic Angular Firebase Chatroom](./Ionic_Angular_Chatroom/README.md) |  8100 |  Firebase Real Time DB |  +Mobile
 ## <a id="adding-application">Adding Application to List</a>
 - Choose unique emoji 
 - Choose unique default ports (so we can run all applications together)
