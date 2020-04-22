@@ -4,6 +4,7 @@ const path = require('path');
 // Set the Albums directory path (the dir the contains all user dedicated dir's)
 const albumsPath = path.join(process.cwd(), 'albums')
 
+// create directory if not exists
 const createDir = (dirName) => {
     const dir = path.join(albumsPath, dirName.toString())
     console.log(dir)
