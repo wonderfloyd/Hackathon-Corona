@@ -7,7 +7,7 @@
 */.sass-cache/
 */.versions/
 */node_modules/
-*/.vscode/
+.vscode/
 
 *~
 *.sw[mnpcod]
