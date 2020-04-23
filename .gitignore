@@ -7,6 +7,7 @@
 */.sass-cache/
 */.versions/
 */node_modules/
+.vscode/
 
 *~
 *.sw[mnpcod]
@@ -23,3 +24,4 @@ log.txt
 
 $RECYCLE.BIN/
 
+.history
