@@ -37,7 +37,7 @@ This app is loosely based on two tutorials:
 
 #### Cloud Firestore / DB
 9. Click on _Database_ in the left menu and then _Create database_ to create a Cloud Firestore instance.
-10. Make sure _Start in propduction mode_ is selected and click _Next_.
+10. Make sure _Start in development mode_ is selected and click _Next_.
 11. Choose a location.
 12. In Database section, click the _Rules_ tab and replace the default rule with this one: 
 ```
