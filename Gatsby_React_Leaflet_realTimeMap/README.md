@@ -1,6 +1,6 @@
 # Real Time Corona Tracking Map
-### this app is  setup with **[Leaflet](https://leafletjs.com/)** and **[React Leaflet](https://react-leaflet.js.org/)**.
-[Here](1https://www.freecodecamp.org/news/how-to-create-a-coronavirus-covid-19-dashboard-map-app-in-react-with-gatsby-and-leaflet/) you can find a full article on how to set an app like this. 
+### This app is  setup with **[Leaflet](https://leafletjs.com/)** and **[React Leaflet](https://react-leaflet.js.org/)**.
+[Here](https://www.freecodecamp.org/news/how-to-create-a-coronavirus-covid-19-dashboard-map-app-in-react-with-gatsby-and-leaflet/) you can find a full article on how to set an app like this. 
 
 
 ### ⚡ Quick Deploy
