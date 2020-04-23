@@ -9,7 +9,12 @@
 * Clone the repo
 * Navigate to your new directory and run:
 ```
+yarn install
 yarn develop
+```
+If you dont have yarn in your system just run:
+```
+npm install -g yarn
 ```
 * You should now be running a Gatsby site locally! 🎉
 
