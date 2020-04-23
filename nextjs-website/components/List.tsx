@@ -13,6 +13,10 @@ const List: React.FunctionComponent<Props> = ({ posts, tags }) => {
     return text && text.toLowerCase().includes(filter.toLowerCase());
   }
 
+  function filterTags(postTags: any[], tags: any[]) {
+    return postTags ? postTags.map(tag=> tags.find(tagType => tagType.sys.id == tag.sys.id).fields.tagName) : [];
+  }
+
   return (
     <div>
       <p>
@@ -20,14 +24,12 @@ const List: React.FunctionComponent<Props> = ({ posts, tags }) => {
         <input onChange={(e) => setFilter(e.target.value)} />
       </p>
 
-      {/* {console.log(JSON.stringify(posts))} */}
-
       {posts.filter(post => {
         return filterString(post.fields.title, filter) ||
           filterString(post.fields.postText, filter) ||
           filterString(post.fields.excerpt, filter);
       }).map(post => (
-        <ListItem key={post.sys.id} data={post} tags={post.fields.tags ? post.fields.tags.map((tag: any) => tags.find(tagType => tagType.sys.id == tag.sys.id).fields.tagName) : []} />
+        <ListItem key={post.sys.id} data={post} tags={filterTags(post.fields.tags, tags)} />
       ))}
     </div>
   )
