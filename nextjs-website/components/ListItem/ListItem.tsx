@@ -15,7 +15,7 @@ const ListItem: React.FunctionComponent<Props> = ({ data, tags }) => (
     </Link>
     <span>{new Date(data.sys.createdAt).toLocaleDateString()}</span>
     <p>{(data.fields.excerpt && data.fields.excerpt.trim()) ? data.fields.excerpt : data.fields.postText.split('\n')[0]}</p>
-    <p>Tags: {tags.length && tags.map(tag => <span className={styles.tag}>#{tag}</span>)}</p>
+    <p>{tags?.length && tags.map(tag => <span className={styles.tag}>#{tag}</span>)}</p>
   </div>
 )
 

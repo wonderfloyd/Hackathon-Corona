@@ -44,8 +44,8 @@ export const getStaticProps: GetStaticProps = async () => {
   const baseUrl = process.env.contentfulBaseUrl;
 
   try {
-    const allPosts = await fetch(`${baseUrl}/spaces/${spaceId}/environments/${environmentId}/entries?access_token=${accessToken}&include=10`);
-    const entities = await allPosts.json();
+    const allEntities = await fetch(`${baseUrl}/spaces/${spaceId}/environments/${environmentId}/entries?access_token=${accessToken}`);
+    const entities = await allEntities.json();
     return { props: { posts: entities.items.filter((post: any) => post.sys.contentType.sys.id == "blogPost") ,
                       tags: entities.items.filter((post: any) => post.sys.contentType.sys.id == "tag") } }
   } catch (err) {

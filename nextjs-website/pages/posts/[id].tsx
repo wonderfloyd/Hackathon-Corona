@@ -3,6 +3,7 @@ import { GetStaticProps, GetStaticPaths } from 'next';
 import fetch from 'isomorphic-unfetch';
 
 import Layout from '../../components/Layout/Layout';
+import { getTagsForPost } from '../../data';
 
 type Props = {
   post: any,
@@ -23,6 +24,8 @@ export default class BlogPost extends React.Component<Props> {
       )
     }
 
+    getTagsForPost(post);
+
     return (
       <Layout title={`${post ? 'Blog | ' + post.fields.title : 'Blog Post'}`}>
         <h2>{post.fields.title}</h2>
@@ -31,6 +34,8 @@ export default class BlogPost extends React.Component<Props> {
         <pre style={{ whiteSpace: 'pre-line', fontSize: '1.2em' }}>
           {post.fields.postText}
         </pre>
+        {/* className={styles.tag} */}
+        <p>Tags: {post.fields.tags?.length && post.fields.tags.map((tag: { name: string; }) => <span>#{tag.name}</span>)}</p>
       </Layout>
     )
   }
