@@ -4,14 +4,14 @@ import fetch from 'isomorphic-unfetch';
 
 import Layout from '../../components/Layout/Layout';
 import List from '../../components/List';
+import { getTagsForPost } from '../../data';
 
 type Props = {
   posts: any[],
-  tags: any[],
   errors?: string
 }
 
-const BlogIndex = ({ posts, tags, errors }: Props) => {
+const BlogIndex = ({ posts, errors }: Props) => {
   if (errors) {
     return (
       <Layout title={`Error`}>
@@ -25,7 +25,7 @@ const BlogIndex = ({ posts, tags, errors }: Props) => {
   return (
     <Layout title="Posts List">
       <h1>Posts List</h1>
-      <List posts={posts} tags={tags} />
+      <List posts={posts} />
       <p>
         <Link href="/">
           <a>Go home</a>
@@ -34,8 +34,6 @@ const BlogIndex = ({ posts, tags, errors }: Props) => {
     </Layout>
   )
 }
-
-
 
 export const getStaticProps: GetStaticProps = async () => {
   const spaceId = process.env.spaceId;
@@ -46,8 +44,12 @@ export const getStaticProps: GetStaticProps = async () => {
   try {
     const allEntities = await fetch(`${baseUrl}/spaces/${spaceId}/environments/${environmentId}/entries?access_token=${accessToken}`);
     const entities = await allEntities.json();
-    return { props: { posts: entities.items.filter((post: any) => post.sys.contentType.sys.id == "blogPost") ,
-                      tags: entities.items.filter((post: any) => post.sys.contentType.sys.id == "tag") } }
+    const posts = entities.items.filter((post: any) => post.sys.contentType.sys.id == "blogPost");
+
+    for (let post in posts)
+      getTagsForPost(post);
+
+    return { props: { posts: posts } }
   } catch (err) {
     console.log('failed fetching posts: ', err);
     return { props: { errors: err.message } };

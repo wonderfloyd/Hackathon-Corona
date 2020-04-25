@@ -26,8 +26,6 @@ export default class BlogPost extends React.Component<Props> {
       )
     }
 
-    getTagsForPost(post);
-
     return (
       <Layout title={`${post ? 'Blog | ' + post.fields.title : 'Blog Post'}`}>
         <h2>{post.fields.title}</h2>
@@ -36,7 +34,7 @@ export default class BlogPost extends React.Component<Props> {
         <pre style={{ whiteSpace: 'pre-line', fontSize: '1.2em' }}>
           {post.fields.postText}
         </pre>
-        <p>Tags: {post.fields.tags?.length && post.fields.tags.map((tag: { name: string; }) => <span className={styles.tag}>#{tag.name}</span>)}</p>
+        <p>{post.fields.tags?.length > 0 ? <span>Tags:</span> : ""}{post.fields.tags?.length > 0 ? post.fields.tags.map((tag: any) => <span className={styles.tag}>#{tag.name}</span>) : ""}</p>
       </Layout>
     )
   }
@@ -62,6 +60,9 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     const id = params ? params.id : null;
     const res = await fetch(`${baseUrl}/spaces/${spaceId}/environments/${environmentId}/entries/${id}?access_token=${accessToken}`)
     const post = await res.json();
+
+    getTagsForPost(post);
+
     return { props: { post } }
   } catch (err) {
     return { props: { errors: err.message } }
