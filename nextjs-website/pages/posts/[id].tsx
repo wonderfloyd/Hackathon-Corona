@@ -5,6 +5,8 @@ import fetch from 'isomorphic-unfetch';
 import Layout from '../../components/Layout/Layout';
 import { getTagsForPost } from '../../data';
 
+import styles from './[id].module.css';
+
 type Props = {
   post: any,
   errors?: string
@@ -34,8 +36,7 @@ export default class BlogPost extends React.Component<Props> {
         <pre style={{ whiteSpace: 'pre-line', fontSize: '1.2em' }}>
           {post.fields.postText}
         </pre>
-        {/* className={styles.tag} */}
-        <p>Tags: {post.fields.tags?.length && post.fields.tags.map((tag: { name: string; }) => <span>#{tag.name}</span>)}</p>
+        <p>Tags: {post.fields.tags?.length && post.fields.tags.map((tag: { name: string; }) => <span className={styles.tag}>#{tag.name}</span>)}</p>
       </Layout>
     )
   }
