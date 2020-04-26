@@ -16,4 +16,18 @@ const createDir = (dirName) => {
     }
 };
 
+const saveImageRef = (userID, classification = null, location = null) => {
+    db.transaction(trx => {
+        trx.insert({
+          user_id: userID,
+          classification: classification,
+          location: location
+        })
+        .into('photos')
+        .returning('photos')
+        .then(trx.commit)
+        .catch(trx.rollback)
+      })
+};
+
 module.exports = {createDir: createDir}
