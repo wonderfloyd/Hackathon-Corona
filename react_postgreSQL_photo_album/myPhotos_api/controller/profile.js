@@ -1,4 +1,4 @@
-const { createDir } = require('./files')
+const { createDir, downloadImageFromURL, createDBImageRef } = require('./files')
 
 const profileHandlerGet = (db) => (req, res ) => {
   const {id} = req.params;
@@ -14,7 +14,9 @@ const profileHandlerGet = (db) => (req, res ) => {
       }
     })
     .catch(err => res.status(400).json('error getting user'))  
-}
+};
+
+
 module.exports = {
   profileHandlerGet: profileHandlerGet
 }
