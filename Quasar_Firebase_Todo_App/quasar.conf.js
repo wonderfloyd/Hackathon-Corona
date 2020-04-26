@@ -10,6 +10,10 @@
 
 module.exports = function (/* ctx */) {
   return {
+    // sourceFiles: {
+    //   // router: 'src/router/index.ts',
+    //   store: 'src/store/index.ts'
+    // },
     supportTS: true,
     // app boot file (/src/boot)
     // --> boot files are part of "main.js"
@@ -62,7 +66,7 @@ module.exports = function (/* ctx */) {
     supportIE: false,
 
     // https://quasar.dev/quasar-cli/cli-documentation/supporting-ts
-    supportTS: false,
+    // supportTS: false,
 
     // Full list of options: https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-build
     build: {

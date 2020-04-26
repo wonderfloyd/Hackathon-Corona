@@ -60,7 +60,7 @@ export const addNewTask = async (newTask) => {
  * 
  * @param {string} taskId task id to be deleted
  */
-export const deleteTask = async (taskId) => {
+export const deleteSingleTask = async (taskId) => {
   try {
     await tasksRef().doc(taskId).delete();
     console.log(`task id: ${taskId} deleted`)

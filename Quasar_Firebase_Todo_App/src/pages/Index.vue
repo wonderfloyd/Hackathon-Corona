@@ -30,7 +30,7 @@
       <h4>אין משימות נוספות! 😎</h4>
     </div>
 
-    <TaskList v-else :tasks="userTasks" :deleteTask="deleteTask" :toggleTask="toggleTaskDone" />
+    <TaskList v-else :tasks="userTasks" :deleteTask="deleteTask" :toggleTask="toggleTask" />
 
   </q-page>
 </template>
@@ -47,16 +47,16 @@ export default {
     }
   },
   methods: {
-    ...mapActions('tasks', ['toggleTaskDone', 'addTask', 'deleteTask']),
+    ...mapActions('tasks', ['toggleTask', 'addTask', 'deleteTask']),
     addNewTask() {
       if (this.title) {
-        this.addTask({ title: this.title, userId: this.currentUser.id })
+        this.addTask({ title: this.title, userId: this.currentUser.uid })
         this.title = '';
       }
     }
   },
   computed: {
-    ...mapGetters('user', ['currentUser']),
+    ...mapGetters('', ['currentUser']),
     ...mapGetters('tasks', ['userTasks'])
   }
 }

@@ -45,7 +45,7 @@
             v-else
             clickable
             v-ripple
-            @click="logoutUser()"
+            @click="logout()"
           >
             <q-item-section avatar>
               <q-icon name="account_circle" />
@@ -106,7 +106,7 @@ export default {
   },
 
   methods: {
-    ...mapActions('auth', ['logoutUser'])
+    ...mapActions('auth', ['logout'])
   }
 
 }

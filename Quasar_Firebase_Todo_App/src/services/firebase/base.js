@@ -1,7 +1,7 @@
 
-import firebase from 'firebase/app'
-import 'firebase/auth'
-import { Notify } from 'quasar'
+import firebase from 'firebase/app';
+import 'firebase/auth';
+import { Notify } from 'quasar';
 
 /**
  * Firebase's auth interface method
@@ -64,9 +64,12 @@ export const handleOnAuthStateChanged = async (store, currentUser) => {
 
   // Get & bind the current user and tasks
   if (store.state.auth.isAuthenticated) {
-    await store.dispatch('user/getCurrentUser', currentUser.uid);
+    console.log('base.js authChanged store: ', store);
+    // await store.
+    await store.dispatch('getCurrentUser', currentUser.uid);
     await store.dispatch('tasks/getCurrentUserTasks', currentUser.uid);
-    console.log('user tasks : ', store.state.tasks.userTasks)
+    console.log('user : ', store.state.user.currentUser);
+    console.log('user tasks : ', store.state.tasks.userTasks);
   }
 
   // If the user loses authentication route
