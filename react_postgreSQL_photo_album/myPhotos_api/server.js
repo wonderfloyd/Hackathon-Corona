@@ -72,7 +72,7 @@ in ES6 syntax if the key and value are the same  so you can do it like this as w
 app.get('/profile/:id', profile.profileHandlerGet(db));
 
 app.put('/image', (req, res) => image.handleImage(req, res, db));
-app.post('/imageurl', (req, res) => image.handleApiCall(req, res));
+app.post('/imageurl', (req, res) => image.handleApiCall(req, res, db));
 
 
 app.listen(PORT, () => {

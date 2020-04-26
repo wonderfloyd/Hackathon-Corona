@@ -7,8 +7,7 @@ const app = new Clarifai.App({
   apiKey: process.env.CLARIFAI_API_KEY
  });
 
-const handleApiCall = (req, res) => {
-  console.log(req)
+const handleApiCall = (req, res, db) => {
   uploadFromUrlHandler(req, res);
   app.models.predict( Clarifai.FACE_DETECT_MODEL, req.body.input)
   .then(data => {
@@ -17,13 +16,17 @@ const handleApiCall = (req, res) => {
   .catch(err => res.status(400).json('api error'))
 }
 
-const uploadFromUrlHandler = (req, res) => {
-  console.log("temp")
-  let url = req.body.input
-  console.log(url)
-  let userDictatory = path.join(albumsPath, req.body.id.toString());
-  console.log(userDictatory)
-  const upload = downloadImageFromURL(url, userDictatory);
+const uploadFromUrlHandler = async (req, res, db) => {
+  try {
+    let id = req.body.id
+    let url = req.body.input
+    let userDictatory = path.join(albumsPath, id.toString());
+    const imageLocation = await downloadImageFromURL(url, userDictatory);
+    const dbRow = await createDBImageRef(id, 'test', imageLocation)
+    return dbRow
+  } catch (err) {
+    return err
+  }
  };
 
 

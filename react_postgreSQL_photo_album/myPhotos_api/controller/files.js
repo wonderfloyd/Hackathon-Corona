@@ -18,16 +18,18 @@ const createDir = (dirName) => {
 };
 
 
-const downloadImageFromURL = (url, saveDirectory) => {
-    const filename = url.split('/').pop();
+const downloadImageFromURL = async (url, saveDirectory) => {
+    const filename = url.replace(/[#_*<>()"]/g,'').split('/').pop();
     const savePath = path.join(saveDirectory, filename)
-    axios({url, responseType: 'stream'})
+    res = await axios({url, responseType: 'stream'})
     .then(response => new Promise((resolve, reject) => {
         response.data
           .pipe(fs.createWriteStream(savePath))
-          .on('finish', () => resolve())
+          .on('finish', () => resolve(savePath))
           .on('error', e => reject(e));
     })).catch(err => console.log(err))
+
+    return res;
 };
 
 
