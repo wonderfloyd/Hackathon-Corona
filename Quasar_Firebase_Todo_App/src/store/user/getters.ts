@@ -1,8 +1,7 @@
 import { GetterTree } from 'vuex';
-import { UserState } from './state';
+import { UserState } from './types';
+import { RootState } from '../types';
 
-export const currentUser = ({ currentUser }: UserState) => currentUser;
-
-export default <GetterTree<UserState, any>> {
-  currentUser
-}
+export const getters: GetterTree<UserState, RootState> = {
+  currentUser: ({ currentUser }: UserState) => currentUser
+};

@@ -1,8 +1,7 @@
 import { GetterTree } from 'vuex';
-import { TasksState } from './state';
+import { TasksState } from './types';
+import { RootState } from '../types';
 
-export const userTasks = ({ userTasks }: TasksState) => userTasks;
-
-export default <GetterTree<TasksState, any>> {
-  userTasks
-}
+export const getters: GetterTree<TasksState, RootState> = {
+  userTasks: ({ userTasks }: TasksState) => userTasks
+};

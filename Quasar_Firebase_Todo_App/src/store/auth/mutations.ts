@@ -1,11 +1,9 @@
 import { MutationTree } from 'vuex';
-import { AuthState } from './state';
+import { AuthState } from './types';
 
-export function setAuthState (state: AuthState, data: AuthState) {
-  state.isAuthenticated = data.isAuthenticated
-  state.isReady = data.isReady
-}
-
-export default <MutationTree<AuthState>> {
-  setAuthState
-} 
+export const mutations: MutationTree<AuthState> = {
+  setAuthState: (state: AuthState, data: AuthState) => {
+    state.isAuthenticated = data.isAuthenticated
+    state.isReady = data.isReady
+  }
+};

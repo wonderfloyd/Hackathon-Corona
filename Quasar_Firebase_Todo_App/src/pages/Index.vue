@@ -56,8 +56,8 @@ export default {
     }
   },
   computed: {
-    ...mapGetters('', ['currentUser']),
-    ...mapGetters('tasks', ['userTasks'])
+    ...mapGetters('user', ['currentUser']),
+    ...mapGetters('tasks', ['userTasks']),
   }
 }
 </script>

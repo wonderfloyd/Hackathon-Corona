@@ -1,5 +1,5 @@
-import Task from '../../models/Task';
+import { TasksState } from './types';
 
-export class TasksState {
-  userTasks: Task[] = [];
+export const state: TasksState = {
+  userTasks: []
 } 

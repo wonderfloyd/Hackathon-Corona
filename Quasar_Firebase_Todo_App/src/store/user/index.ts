@@ -1,26 +1,18 @@
 import { Module } from 'vuex';
-import { UserState } from './state'
-import Getters from './getters'
-import Mutations from './mutations'
-import Actions from './actions'
+import { UserState } from './types';
+import { RootState } from '../types';
+import { state } from './state';
+import { getters } from './getters';
+import { mutations } from './mutations';
+import { actions } from './actions';
 
-export default class UserModule implements Module<UserState, any> {
+const namespaced: boolean = true;
 
-  namespace: boolean = true;
-  state: UserState;
-  mutations = Mutations;
-  getters = Getters;
-  actions = Actions;
-  
-  constructor() {
-    this.state = new UserState()
-  }
+export const userModule: Module<UserState, RootState> = {
+  namespaced,
+  state,
+  mutations,
+  getters,
+  actions,
 }
 
-// export default {
-//   namespaced: true as true,
-//   state,
-//   getters,
-//   mutations,
-//   actions
-// }

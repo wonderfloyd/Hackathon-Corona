@@ -1,4 +1,6 @@
-export class AuthState {
-  isAuthenticated: boolean = false;
-  isReady: boolean = false;
+import { AuthState } from './types';
+
+export const state: AuthState = {
+  isAuthenticated: false,
+  isReady: false
 };

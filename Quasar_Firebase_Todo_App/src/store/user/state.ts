@@ -1,5 +1,5 @@
-import User from '../../models/User';
+import { UserState } from './types';
 
-export class UserState {
-  currentUser: User | null = null;
-}
+export const state: UserState = {
+  currentUser: null
+};

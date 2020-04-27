@@ -3,6 +3,9 @@ import firebase from 'firebase/app';
 import 'firebase/auth';
 import { Notify } from 'quasar';
 
+// import Store from '../../store';
+// type StoreType = ReturnType<typeof Store>;
+
 /**
  * Firebase's auth interface method
  * https: //firebase.google.com/docs/reference/js/firebase.auth.html#callable
@@ -52,9 +55,8 @@ export const isAuthenticated = (store) => {
  * @param  {Object} currentUser - Firebase currentUser
  */
 export const handleOnAuthStateChanged = async (store, currentUser) => {
-
-  const initialAuthState = isAuthenticated(store);
   
+  const initialAuthState = isAuthenticated(store);
   // Save to the store
   store.commit('auth/setAuthState', {
     isAuthenticated: currentUser !== null,
@@ -64,9 +66,7 @@ export const handleOnAuthStateChanged = async (store, currentUser) => {
 
   // Get & bind the current user and tasks
   if (store.state.auth.isAuthenticated) {
-    console.log('base.js authChanged store: ', store);
-    // await store.
-    await store.dispatch('getCurrentUser', currentUser.uid);
+    await store.dispatch('user/getCurrentUser', currentUser.uid);
     await store.dispatch('tasks/getCurrentUserTasks', currentUser.uid);
     console.log('user : ', store.state.user.currentUser);
     console.log('user tasks : ', store.state.tasks.userTasks);
