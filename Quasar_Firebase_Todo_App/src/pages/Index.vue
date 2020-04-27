@@ -65,6 +65,6 @@ export default Vue.extend({
 
 <style scoped lang="scss">
   div > h4 {
-    color: #69378e;
+    color: #0d2c50;
   }
 </style>

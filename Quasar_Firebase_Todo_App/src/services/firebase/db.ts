@@ -40,7 +40,6 @@ export default class DbService {
   }
 
   public addNewTask = async (newTask: Task): Promise<void> => {
-    console.log('new task: ', newTask)
     try {
       const taskAdded = await this.tasksRef().add(newTask);
       console.log(`task id: ${taskAdded.id} added`)
@@ -61,7 +60,7 @@ export default class DbService {
   public toggleTaskDone = async (task: Task, newState: boolean): Promise<void> => {
     try {
       await this.tasksRef().doc(task.id).update({ done: newState })
-      console.log('task toggled');
+      console.log(`task ${task.id} toggled`);
     } catch (err) {
       console.log('toggle failed: ', err);
     }
