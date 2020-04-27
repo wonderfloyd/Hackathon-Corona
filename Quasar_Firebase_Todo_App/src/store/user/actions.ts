@@ -3,7 +3,9 @@ import { firestoreAction } from 'vuexfire';
 
 import { UserState } from './types';
 import { RootState } from '../types';
-import { userRef } from '../../services/firebase/db.js';
+import DbService from '../../services/firebase/db';
+
+const db = new DbService();
 
 /** 
  * Get current user from the firestore collection user's,
@@ -11,7 +13,7 @@ import { userRef } from '../../services/firebase/db.js';
 */
 export const actions: ActionTree<UserState, RootState> = {
   getCurrentUser: firestoreAction(({ bindFirestoreRef }, id) => {
-    return bindFirestoreRef('currentUser', userRef(id));
+    return bindFirestoreRef('currentUser', db.userRef(id));
   })
 };
 

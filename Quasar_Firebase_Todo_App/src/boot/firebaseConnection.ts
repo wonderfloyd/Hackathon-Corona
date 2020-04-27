@@ -1,6 +1,15 @@
-import firebaseService from '../services/firebase';
+// import firebaseService from '../services/firebase';
+import fbBaseService from '../services/firebase/base';
 
-export default ({ router, store, Vue }) => {
+import { Router } from '../router';
+import { AppStore } from '../store/';
+
+interface BootParams {
+  router: Router;
+  store: AppStore;
+}
+
+export default ({ router, store }: BootParams) => {
   const config = {
     apiKey: process.env.FIREBASE_API_KEY,
     authDomain: process.env.FIREBASE_AUTH_DOMAIN,
@@ -11,13 +20,15 @@ export default ({ router, store, Vue }) => {
     appId: process.env.FIREBASE_API_ID
   }
 
-  firebaseService.fBInit(config)
+  const fb = new fbBaseService();
+
+  fb.fBInit(config)
 
   // Tell the application what to do when the
   // authentication state has changed
-  firebaseService.auth().onAuthStateChanged((user) => {
-    firebaseService.handleOnAuthStateChanged(store, user);
-  }, (error) => {
+  fb.auth().onAuthStateChanged((user: any) => {
+    fb.handleOnAuthStateChanged(store, user);
+  }, (error: Error) => {
     console.error(error);
   })
 
@@ -25,7 +36,7 @@ export default ({ router, store, Vue }) => {
   // This allows the application to halt rendering until
   // Firebase is finished with its initialization process,
   // and handle the user accordingly
-  firebaseService.routerBeforeEach(router, store);
-  Vue.prototype.$fb = firebaseService;
-  store.$fb = firebaseService;
+  fb.routerBeforeEach(router, store);
+  // Vue.prototype.$fb = firebaseService;
+  // store.$fb = firebaseService;
 }

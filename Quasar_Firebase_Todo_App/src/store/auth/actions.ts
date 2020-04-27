@@ -5,12 +5,13 @@ import router from '../../router';
 import { AuthState } from './types';
 import { RootState } from '../types';
 
-import { userRef, isUserRegistered } from '../../services/firebase/db';
-import { loginWithGoogle, getGoogleLoginResult, logoutUser } from '../../services/firebase/googleLogin';
+import DbService from '../../services/firebase/db';
+import GoogleLogin from '../../services/firebase/googleLogin';
 
 import User from '../../models/User';
 
-
+const login = new GoogleLogin();
+const db = new DbService();
 
 const addUserToUsersCollection = async (state: User, userRef: any) => {
   const
@@ -27,24 +28,24 @@ export const actions: ActionTree<AuthState, RootState> = {
   },
   userGoogleLogin: async () => {
     try {
-      const googleAuthRes = await loginWithGoogle();
+      const googleAuthRes = await login.loginWithGoogle();
       return googleAuthRes;
     } catch (err) {
       console.log('problem logging in: ', err);
     }
   },
   registerNewUsers: async () => {
-    const res = await getGoogleLoginResult();
+    const res = await login.getGoogleLoginResult();
 
     // Check if redirecting from google login 
     if (res) {
       const { uid, email, displayName } = res;
-      const userExists = await isUserRegistered(uid);
+      const userExists = await db.isUserRegistered(uid);
       
       // Check if user is alread registered
-      if (!userExists) {
+      if (!userExists && email && displayName) {
         console.log('registering user: ', displayName);
-        const user = userRef(uid);
+        const user = db.userRef(uid);
         return addUserToUsersCollection({ uid, email, displayName }, user);
       }
 
@@ -59,6 +60,6 @@ export const actions: ActionTree<AuthState, RootState> = {
     await firestoreAction(({ unbindFirestoreRef }) => { unbindFirestoreRef('tasks') });
     commit('user/setCurrentUserData', null, { root: true });
     commit('tasks/setCurrentUserTasks', [], { root: true });
-    logoutUser();
+    login.logoutUser();
   }
 }
