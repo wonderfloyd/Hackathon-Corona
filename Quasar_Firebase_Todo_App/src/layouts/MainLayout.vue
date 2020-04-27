@@ -87,10 +87,11 @@
   </q-layout>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue';
 import { mapActions, mapGetters } from 'vuex';
 
-export default {
+export default Vue.extend({
   name: 'MainLayout',
 
   components: {},
@@ -109,5 +110,5 @@ export default {
     ...mapActions('auth', ['logout'])
   }
 
-}
+})
 </script>

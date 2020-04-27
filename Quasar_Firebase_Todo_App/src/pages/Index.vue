@@ -35,11 +35,12 @@
   </q-page>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue';
 import { mapGetters, mapActions } from 'vuex'; 
-import TaskList from '../components/TaksList';
-import { getUserTasks } from '../services/firebase/db.js';
-export default {
+import TaskList from '../components/TaksList.vue';
+// import { getUserTasks } from '../services/firebase/db.js';
+export default Vue.extend({
   components: { TaskList },
   data() {
     return {
@@ -48,7 +49,7 @@ export default {
   },
   methods: {
     ...mapActions('tasks', ['toggleTask', 'addTask', 'deleteTask']),
-    addNewTask() {
+    addNewTask(): void {
       if (this.title) {
         this.addTask({ title: this.title, userId: this.currentUser.uid })
         this.title = '';
@@ -59,7 +60,7 @@ export default {
     ...mapGetters('user', ['currentUser']),
     ...mapGetters('tasks', ['userTasks']),
   }
-}
+})
 </script>
 
 <style scoped lang="scss">
