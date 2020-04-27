@@ -8,13 +8,13 @@ const register = require('./controller/register')
 const signin = require('./controller/signin')
 const profile = require('./controller/profile')
 const image = require('./controller/image')
+const db = require('./db')
 
 
 // ENV variables
 require('dotenv').config()
-const {HOST, USER, DB_NAME, PORT} = process.env
+const { PORT } = process.env
 // console.log(HOST, USER, DB_NAME)
-const knex = require('knex');
 // const db = knex({
 //   client: 'pg',
 //   connection: {
@@ -24,15 +24,7 @@ const knex = require('knex');
 //     database : 'photo-app'
 //   }
 // });
-const db = knex({
-  client: 'pg',
-  connection: {
-    host : HOST,
-    user : USER,
-    password : '',
-    database : DB_NAME
-  }
-});
+
 
 db.select('*').from('users').then(data => console.log(data));
 

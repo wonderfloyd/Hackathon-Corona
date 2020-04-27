@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const axios = require('axios');
+const db = require('../db');
 
 // Set the Albums directory path (the dir the contains all user dedicated dir's)
 const albumsPath = path.join(process.cwd(), 'albums')
