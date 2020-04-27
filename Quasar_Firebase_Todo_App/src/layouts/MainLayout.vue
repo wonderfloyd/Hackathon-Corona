@@ -45,7 +45,7 @@
             v-else
             clickable
             v-ripple
-            @click="logoutUser()"
+            @click="logout()"
           >
             <q-item-section avatar>
               <q-icon name="account_circle" />
@@ -87,10 +87,11 @@
   </q-layout>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue';
 import { mapActions, mapGetters } from 'vuex';
 
-export default {
+export default Vue.extend({
   name: 'MainLayout',
 
   components: {},
@@ -106,8 +107,8 @@ export default {
   },
 
   methods: {
-    ...mapActions('auth', ['logoutUser'])
+    ...mapActions('auth', ['logout'])
   }
 
-}
+})
 </script>

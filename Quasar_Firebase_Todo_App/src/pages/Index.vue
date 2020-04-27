@@ -30,16 +30,17 @@
       <h4>אין משימות נוספות! 😎</h4>
     </div>
 
-    <TaskList v-else :tasks="userTasks" :deleteTask="deleteTask" :toggleTask="toggleTaskDone" />
+    <TaskList v-else :tasks="userTasks" :deleteTask="deleteTask" :toggleTask="toggleTask" />
 
   </q-page>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue';
 import { mapGetters, mapActions } from 'vuex'; 
-import TaskList from '../components/TaksList';
-import { getUserTasks } from '../services/firebase/db.js';
-export default {
+import TaskList from '../components/TaksList.vue';
+// import { getUserTasks } from '../services/firebase/db.js';
+export default Vue.extend({
   components: { TaskList },
   data() {
     return {
@@ -47,23 +48,23 @@ export default {
     }
   },
   methods: {
-    ...mapActions('tasks', ['toggleTaskDone', 'addTask', 'deleteTask']),
-    addNewTask() {
+    ...mapActions('tasks', ['toggleTask', 'addTask', 'deleteTask']),
+    addNewTask(): void {
       if (this.title) {
-        this.addTask({ title: this.title, userId: this.currentUser.id })
+        this.addTask({ title: this.title, userId: this.currentUser.uid })
         this.title = '';
       }
     }
   },
   computed: {
     ...mapGetters('user', ['currentUser']),
-    ...mapGetters('tasks', ['userTasks'])
+    ...mapGetters('tasks', ['userTasks']),
   }
-}
+})
 </script>
 
 <style scoped lang="scss">
   div > h4 {
-    color: #69378e;
+    color: #0d2c50;
   }
 </style>

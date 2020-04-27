@@ -14,10 +14,11 @@
   </q-page>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue';
 import { mapActions } from 'vuex';
 
-export default {
+export default Vue.extend({
   name: 'Login',
   methods: {
     ...mapActions('auth', ['userGoogleLogin']),
@@ -33,5 +34,5 @@ export default {
       }
     }
   }
-}
+})
 </script>

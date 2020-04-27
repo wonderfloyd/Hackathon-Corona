@@ -8,6 +8,7 @@ This app is loosely based on two tutorials:
 
 ## Tech Stack
 ### Front end
+- [TypeScript](https://www.typescriptlang.org/)
 - [Quasar](https://quasar.dev/)
 - [Vue](https://vuejs.org/)
 - [VueX](https://vuex.vuejs.org/)
