@@ -8,7 +8,6 @@ const baseUrl = process.env.contentfulBaseUrl;
 export const getTagsForPost = async (post: any) => {
     if (post.fields.tags)
         for (let postTag of post.fields.tags) {
-
             try {
                 const res = await fetch(`${baseUrl}/spaces/${spaceId}/environments/${environmentId}/entries/${postTag.sys.id}?access_token=${accessToken}`)
                 const tag = await res.json();

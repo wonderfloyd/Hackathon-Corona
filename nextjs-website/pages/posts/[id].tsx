@@ -61,7 +61,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     const res = await fetch(`${baseUrl}/spaces/${spaceId}/environments/${environmentId}/entries/${id}?access_token=${accessToken}`)
     const post = await res.json();
 
-    getTagsForPost(post);
+    await getTagsForPost(post);
 
     return { props: { post } }
   } catch (err) {

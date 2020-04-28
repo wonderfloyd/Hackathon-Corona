@@ -46,8 +46,8 @@ export const getStaticProps: GetStaticProps = async () => {
     const entities = await allEntities.json();
     const posts = entities.items.filter((post: any) => post.sys.contentType.sys.id == "blogPost");
 
-    for (let post of posts) {
-      getTagsForPost(post);
+    for (let post of posts)
+      await getTagsForPost(post);
 
     return { props: { posts: posts } }
   } catch (err) {
