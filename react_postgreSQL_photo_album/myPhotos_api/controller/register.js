@@ -1,3 +1,4 @@
+const { createDir } = require('./files')
 
 const handleRegister = (req, res, bcrypt, db) => {
   const { name, email, password } = req.body;
@@ -23,7 +24,10 @@ const handleRegister = (req, res, bcrypt, db) => {
           joined: new Date()
           
         })
-        .then(user=> res.json(user[0]))
+        .then(user=> {
+          createDir(user[0].id);
+          res.json(user[0]);
+        })
       })
     .then(trx.commit)
     .catch(trx.rollback)
