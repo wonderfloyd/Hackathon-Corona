@@ -9,13 +9,18 @@ const app = new Clarifai.App({
  });
 
 const handleApiCall = (req, res, db) => {
-  uploadFromUrlHandler(req, res);
-  app.models.predict( Clarifai.FACE_DETECT_MODEL, req.body.input)
-  .then(data => {
-    res.json(data);
-  })
-  .catch(err => res.status(400).json('api error'))
-}
+  try {
+    uploadFromUrlHandler(req, res);
+    app.models.predict( Clarifai.FACE_DETECT_MODEL, req.body.input)
+    .then(data => {
+      res.json(data);
+    })
+    .catch(err => res.status(400).json('api error'))
+  } catch(err) {
+    res.status(400).json('api error')
+  }
+  };
+
 
 
 // handle new photo upload from user when image is referenced by url, download the image and add DB reference
