@@ -5,7 +5,7 @@ import fetch from 'isomorphic-unfetch';
 import Layout from '../../components/Layout/Layout';
 import { getTagsForPost } from '../../data';
 
-import styles from './[id].module.css';
+import styles from './id.module.css';
 
 type Props = {
   post: any,
