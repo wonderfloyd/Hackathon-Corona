@@ -1,6 +1,7 @@
 const path = require('path')
 const Clarifai = require('clarifai');
-const { createDir, downloadImageFromURL, createDBImageRef, albumsPath } = require('./files')
+const { createDir, downloadImageFromURL, createDBImageRef } = require('./files')
+const { albumsPath } = require('../config')
 require('dotenv').config()
 
 const app = new Clarifai.App({
@@ -16,14 +17,20 @@ const handleApiCall = (req, res, db) => {
   .catch(err => res.status(400).json('api error'))
 }
 
+
+// handle new photo upload from user when image is referenced by url, download the image and add DB reference
 const uploadFromUrlHandler = async (req, res, db) => {
   try {
     let id = req.body.id
     let url = req.body.input
     let userDictatory = path.join(albumsPath, id.toString());
     const imageLocation = await downloadImageFromURL(url, userDictatory);
-    const dbRow = await createDBImageRef(id, 'test', imageLocation)
-    return dbRow
+    if (imageLocation) {
+      const dbRow = await createDBImageRef(id, 'test', imageLocation);
+      return dbRow;
+    } else {
+      return false;
+    }
   } catch (err) {
     return err
   }

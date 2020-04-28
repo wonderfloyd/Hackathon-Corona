@@ -2,25 +2,20 @@ const fs = require('fs');
 const path = require('path');
 const axios = require('axios');
 const db = require('../db');
-
-// Set the Albums directory path (the dir the contains all user dedicated dir's)
-const albumsPath = path.join(process.cwd(), 'albums')
+const { albumsPath } = require('../config')
 
 // create directory if not exists
 const createDir = (dirName) => {
     const dir = path.join(albumsPath, dirName.toString())
-    console.log(dir)
     if (!fs.existsSync(dir)){
         fs.mkdirSync(dir);
-    } else
-    {
-        console.log("Directory already exist");
     }
 };
 
 
+// receive URL and directory where to save, download image to that directory
 const downloadImageFromURL = async (url, saveDirectory) => {
-    const filename = url.replace(/[#_*<>()"]/g,'').split('/').pop();
+    const filename = url.replace(/[#_*<>()"?]/g,'').split('/').pop();
     const savePath = path.join(saveDirectory, filename)
     res = await axios({url, responseType: 'stream'})
     .then(response => new Promise((resolve, reject) => {
@@ -33,17 +28,7 @@ const downloadImageFromURL = async (url, saveDirectory) => {
     return res;
 };
 
-
-/*
-downloadImageFromURL(
-    url = "https://miro.medium.com/max/5400/1*VcHVCyRSAOF3V6Ldi0iXOQ.jpeg",
-    savePath= path.join(process.cwd()))
-
-downloadImageFromURL(
-    url = "https://www.yourdictionary.com/images/definitions/lg/10531.people.jpg",
-    savePath= path.join(process.cwd()))
-*/
-
+// receive User ID, photo classification and photo location - save data as new row in DB
 const createDBImageRef = (userID, classification = null, location = null) => {
     db.transaction(trx => {
         trx.insert({
@@ -58,9 +43,15 @@ const createDBImageRef = (userID, classification = null, location = null) => {
       })
 };
 
+// return photo path by User ID and full filename (including extension)
+const getLocalPhotoPath = (userID, filename) => {
+    return path.join(albumsPath, userID.toString(), filename)
+};
+
+
 module.exports = {
     createDir: createDir,
     downloadImageFromURL: downloadImageFromURL,
     createDBImageRef: createDBImageRef,
-    albumsPath: albumsPath
+    getLocalPhotoPath: getLocalPhotoPath
 }

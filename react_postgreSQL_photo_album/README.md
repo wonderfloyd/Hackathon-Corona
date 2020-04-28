@@ -51,7 +51,7 @@ $ systemctl start postgresql
 - `createdb 'database_name'` *(I'm going to call my new database "photo-app")*
 - `$ createdb 'photo-app'`
 ### Configure db tables  
-The back end [myPhotos_api](./myPhotos_api) needs 2 tables in the data base to work properly.
+The back end [myPhotos_api](./myPhotos_api) needs 3 tables in the data base to work properly.
 - launch the DB console in to your new database
 - `$ psql 'database_name` *In my case It's*
 - `$ psql 'photo-app'`
@@ -76,6 +76,19 @@ The back end [myPhotos_api](./myPhotos_api) needs 2 tables in the data base to w
      );
 ```
 *This will create the login table*  
+
+
+```
+    CREATE TABLE photos (	
+      id serial PRIMARY KEY,
+      user_id integer not null,
+      classification VARCHAR(100),
+      location VARCHAR(300) not null
+     );
+```
+*This will create the photos table*  
+
+
 SQL create table syntax 
 ```
   CREATE TABLE table_name (
