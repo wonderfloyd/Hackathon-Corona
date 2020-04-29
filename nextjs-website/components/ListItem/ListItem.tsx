@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Link from 'next/link';
 
+import Tags from '../../components/Tags/Tags';
 import styles from './ListItem.module.css';
 
 type Props = {
@@ -15,7 +16,7 @@ const ListItem: React.FunctionComponent<Props> = ({ post }) => {
       </Link>
       <span>{new Date(post.sys.createdAt).toLocaleDateString()}</span>
       <p>{(post.fields.excerpt && post.fields.excerpt.trim()) ? post.fields.excerpt : post.fields.postText.split('\n')[0]}</p>
-      <p>{post.fields.tags?.length > 0 ? <span>Tags:</span> : ""}{post.fields.tags?.length > 0 ? post.fields.tags.map((tag: any) => <span className={styles.tag}>#{tag.name}</span>) : ""}</p>
+      <Tags tags={post.fields.tags} />
     </div>
   );
 }

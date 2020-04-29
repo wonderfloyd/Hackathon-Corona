@@ -3,9 +3,8 @@ import { GetStaticProps, GetStaticPaths } from 'next';
 import fetch from 'isomorphic-unfetch';
 
 import Layout from '../../components/Layout/Layout';
+import Tags from '../../components/Tags/Tags';
 import { getTagsForPost } from '../../data';
-
-import styles from './id.module.css';
 
 type Props = {
   post: any,
@@ -34,7 +33,7 @@ export default class BlogPost extends React.Component<Props> {
         <pre style={{ whiteSpace: 'pre-line', fontSize: '1.2em' }}>
           {post.fields.postText}
         </pre>
-        <p>{post.fields.tags?.length > 0 ? <span>Tags:</span> : ""}{post.fields.tags?.length > 0 ? post.fields.tags.map((tag: any) => <span className={styles.tag}>#{tag.name}</span>) : ""}</p>
+        <Tags tags={post.fields.tags} />
       </Layout>
     )
   }
