@@ -3,6 +3,8 @@ import { GetStaticProps, GetStaticPaths } from 'next';
 import fetch from 'isomorphic-unfetch';
 
 import Layout from '../../components/Layout/Layout';
+import Tags from '../../components/Tags/Tags';
+import { getTagsForPost } from '../../data';
 
 type Props = {
   post: any,
@@ -31,6 +33,7 @@ export default class BlogPost extends React.Component<Props> {
         <pre style={{ whiteSpace: 'pre-line', fontSize: '1.2em' }}>
           {post.fields.postText}
         </pre>
+        <Tags tags={post.fields.tags} />
       </Layout>
     )
   }
@@ -56,6 +59,9 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     const id = params ? params.id : null;
     const res = await fetch(`${baseUrl}/spaces/${spaceId}/environments/${environmentId}/entries/${id}?access_token=${accessToken}`)
     const post = await res.json();
+
+    await getTagsForPost(post);
+
     return { props: { post } }
   } catch (err) {
     return { props: { errors: err.message } }

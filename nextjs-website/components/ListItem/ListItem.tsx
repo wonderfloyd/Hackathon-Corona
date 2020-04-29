@@ -1,22 +1,24 @@
 import * as React from 'react';
 import Link from 'next/link';
 
+import Tags from '../../components/Tags/Tags';
 import styles from './ListItem.module.css';
 
 type Props = {
-  data: any,
-  tags: string[]
+  post: any
 }
 
-const ListItem: React.FunctionComponent<Props> = ({ data, tags }) => (
-  <div className={styles.item}>
-    <Link href="/posts/[id]" as={`/posts/${data.sys.id}`}>
-      <a><h3>{data.fields.title}</h3></a>
-    </Link>
-    <span>{new Date(data.sys.createdAt).toLocaleDateString()}</span>
-    <p>{(data.fields.excerpt && data.fields.excerpt.trim()) ? data.fields.excerpt : data.fields.postText.split('\n')[0]}</p>
-    <p>Tags: {tags.length && tags.map(tag => <span className={styles.tag}>#{tag}</span>)}</p>
-  </div>
-)
+const ListItem: React.FunctionComponent<Props> = ({ post }) => {
+  return (
+    <div className={styles.item}>
+      <Link href="/posts/[id]" as={`/posts/${post.sys.id}`}>
+        <a><h3>{post.fields.title}</h3></a>
+      </Link>
+      <span>{new Date(post.sys.createdAt).toLocaleDateString()}</span>
+      <p>{(post.fields.excerpt && post.fields.excerpt.trim()) ? post.fields.excerpt : post.fields.postText.split('\n')[0]}</p>
+      <Tags tags={post.fields.tags} />
+    </div>
+  );
+}
 
 export default ListItem;
