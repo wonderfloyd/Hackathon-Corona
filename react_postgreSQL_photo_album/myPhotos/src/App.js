@@ -118,6 +118,7 @@ class App extends Component {
     })
     .then(response => response.json())
     .then(response => {
+      this.props.fetchImageList(this.state.user.id);
       if(response) {
         fetch('http://localhost:3001/image', {
           method: 'put',
@@ -125,7 +126,7 @@ class App extends Component {
           body: JSON.stringify({
             id: this.state.user.id
           }),
-        })   
+        })
         .then(response => response.json())
         .then(count => {
           this.setState(Object.assign(this.state.user, {entries: count}))
@@ -136,7 +137,7 @@ class App extends Component {
     })
     .catch(err => console.log(err))
     
-    
+    this.props.fetchImageList(this.state.user.id);
   }
 
 
@@ -162,7 +163,7 @@ class App extends Component {
             {/*<Logo />*/}
             <Rank name={this.state.user.name} entries={this.state.user.entries} />
             <ImageLinkForm onInputChange={this.onInputChange} onPictureSubmit={this.onPictureSubmit}/>
-            <FaceRecognition box={this.state.box} imageUrl= { this.state.imageUrl }/>
+            {/*<FaceRecognition box={this.state.box} imageUrl= { this.state.imageUrl }/>*/}
             <AlbumList />
           </div>
          :( this.state.route === 'register' 

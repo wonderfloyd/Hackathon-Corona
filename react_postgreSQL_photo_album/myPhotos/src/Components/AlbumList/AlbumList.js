@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import './AlbumList.css';
 
 class AlbumList extends Component {
 
@@ -9,9 +10,9 @@ class AlbumList extends Component {
         let previewURL = `http://localhost:3001/img/${previewImage.id}`;
 
         return (
-            <div key={img_classification} className="fl w-50 w-25-m w-20-l pa2">
-                <div href="https://geo.itunes.apple.com/us/album/blonde/id1146195596?at=1l3vqFJ&amp;mt=1&amp;app=music" className="db link dim tc">
-                <img src={previewURL} alt="Frank Ocean Blonde Album Cover" className="w-100 db outline black-10"></img>
+            <div key={img_classification} className="fl w-50 w-25-m w-20-l pa2 bg-white" style={{height:'150px', width:'150px'}}>
+                <div className="db link dim tc center" style={{height:'110px', width:'110px'}}>
+                <img src={previewURL} style={{ height:'100px', width: '100px', borderRadius: '10px'}} className="w-100 db outline black-10 center"></img>
                         <dl className="mt2 f6 lh-copy">
                         <dt className="clip">Title</dt>
                         <dd className="ml0 black truncate w-100">{img_classification}</dd>
@@ -28,7 +29,8 @@ class AlbumList extends Component {
     render() {
         return (
             <article>
-                <div className="cf pa2">
+                <h2 class="f3 fw4 pa3 mv0">Albums</h2>
+                <div className="cf pa2 center">
                     {this.renderImageClassList()}
                 </div>
             </article>
