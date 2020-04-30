@@ -7,7 +7,10 @@ import FaceRecognition from './Components/FaceRecognition/FaceRecognition';
 import Logo from './Components/Logo/Logo';
 import ImageLinkForm from './Components/ImageLinkForm/ImageLinkForm';
 import Rank from './Components/Rank/Rank';
+import AlbumList from './Components/AlbumList/AlbumList';
 import Particles from 'react-particles-js';
+import { connect } from 'react-redux';
+import { setUser, fetchImageList } from './actions/index'
 
 
 
@@ -70,6 +73,8 @@ class App extends Component {
   }
   
   loadUser = (data) => { 
+    this.props.setUser(data.id);
+    this.props.fetchImageList(data.id)
     this.setState({
       user: {
         id: data.id,
@@ -153,11 +158,12 @@ class App extends Component {
         />
         <Navigation isSignedIn={this.state.isSignedIn} onRouteChange= {this.onRouteChange} />
         { this.state.route === 'home'
-         ? <div> 
-            <Logo />
+         ? <div>
+            {/*<Logo />*/}
             <Rank name={this.state.user.name} entries={this.state.user.entries} />
             <ImageLinkForm onInputChange={this.onInputChange} onPictureSubmit={this.onPictureSubmit}/>
             <FaceRecognition box={this.state.box} imageUrl= { this.state.imageUrl }/>
+            <AlbumList />
           </div>
          :( this.state.route === 'register' 
            ? <Register  loadUser={this.loadUser} onRouteChange={this.onRouteChange}/>
@@ -169,4 +175,12 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    User: state.User,
+    imageList: state.imageList,
+    imageClass: state.imageClass
+  }
+};
+
+export default connect(mapStateToProps,{setUser, fetchImageList})(App);
