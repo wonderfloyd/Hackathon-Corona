@@ -10,9 +10,12 @@ const app = new Clarifai.App({
 
 const handleApiCall = (req, res, db) => {
   try {
-    uploadFromUrlHandler(req, res);
-    app.models.predict( Clarifai.FACE_DETECT_MODEL, req.body.input)
+    app.models.predict( Clarifai.GENERAL_MODEL, req.body.input)
     .then(data => {
+      let imageClassificationList = data.outputs[0].data.concepts;
+      let imageClassification = imageClassificationList[0].name || null;
+      uploadFromUrlHandler(req, imageClassification);
+      console.log('classifiction: ',imageClassification);
       res.json(data);
     })
     .catch(err => res.status(400).json('api error'))
@@ -24,14 +27,14 @@ const handleApiCall = (req, res, db) => {
 
 
 // handle new photo upload from user when image is referenced by url, download the image and add DB reference
-const uploadFromUrlHandler = async (req, res, db) => {
+const uploadFromUrlHandler = async (req, imageClassification ) => {
   try {
     let id = req.body.id
     let url = req.body.input
     let userDictatory = path.join(albumsPath, id.toString());
     const imageLocation = await downloadImageFromURL(url, userDictatory);
     if (imageLocation) {
-      const dbRow = await createDBImageRef(id, 'test', imageLocation);
+      const dbRow = await createDBImageRef(id, imageClassification || null, imageLocation);
       return dbRow;
     } else {
       return false;
