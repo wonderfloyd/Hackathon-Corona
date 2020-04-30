@@ -16,3 +16,11 @@ export const fetchImageList = (id) => {
         });
     };
 };
+
+
+export const selectClassification = (classification) => {
+    return {
+        type: 'selectClassification',
+        payload: classification
+    };
+};

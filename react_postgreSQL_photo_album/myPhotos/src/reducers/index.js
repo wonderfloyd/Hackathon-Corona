@@ -34,8 +34,19 @@ const imageClassReducer = (state=[], action) => {
     }
 };
 
+const selectClassificationReducer = (state=null, action) => {
+    switch (action.type) {
+        case 'selectClassification':
+            return action.payload || null
+        default:
+            return state;
+    }
+};
+
+
 export default combineReducers({
     User: authReducer,
     imageList: imageListReducer,
-    imageClass: imageClassReducer
+    imageClass: imageClassReducer,
+    selected: selectClassificationReducer
 });

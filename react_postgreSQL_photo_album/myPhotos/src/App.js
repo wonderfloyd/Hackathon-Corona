@@ -8,6 +8,7 @@ import Logo from './Components/Logo/Logo';
 import ImageLinkForm from './Components/ImageLinkForm/ImageLinkForm';
 import Rank from './Components/Rank/Rank';
 import AlbumList from './Components/AlbumList/AlbumList';
+import Album from './Components/Album/Album';
 import Particles from 'react-particles-js';
 import { connect } from 'react-redux';
 import { setUser, fetchImageList } from './actions/index'
@@ -165,6 +166,7 @@ class App extends Component {
             <ImageLinkForm onInputChange={this.onInputChange} onPictureSubmit={this.onPictureSubmit}/>
             {/*<FaceRecognition box={this.state.box} imageUrl= { this.state.imageUrl }/>*/}
             <AlbumList />
+            <Album />
           </div>
          :( this.state.route === 'register' 
            ? <Register  loadUser={this.loadUser} onRouteChange={this.onRouteChange}/>

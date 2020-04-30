@@ -1,16 +1,19 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './AlbumList.css';
+import { fetchImageList, selectClassification } from '../../actions/index'
 
 class AlbumList extends Component {
-
     renderImageClass(img_classification) {
         let previewImage = this.props.imageList.find(image => image.classification===img_classification);
         console.log('previewImage: ', previewImage)
         let previewURL = `http://localhost:3001/img/${previewImage.id}`;
 
         return (
-            <div key={img_classification} className="fl w-50 w-25-m w-20-l pa2 bg-white" style={{height:'150px', width:'150px'}}>
+            <div key={img_classification} 
+            className="fl w-50 w-25-m w-20-l pa2 bg-white" 
+            style={{height:'150px', width:'150px'}}
+            onClick={()=>this.props.selectClassification(img_classification)}>
                 <div className="db link dim tc center" style={{height:'110px', width:'110px'}}>
                 <img src={previewURL} style={{ height:'100px', width: '100px', borderRadius: '10px'}} className="w-100 db outline black-10 center"></img>
                         <dl className="mt2 f6 lh-copy">
@@ -47,4 +50,4 @@ const mapStateToProps = (state) => {
     }
 };
 
-export default connect(mapStateToProps)(AlbumList);
+export default connect(mapStateToProps, { fetchImageList, selectClassification })(AlbumList);
