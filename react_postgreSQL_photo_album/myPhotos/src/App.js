@@ -162,10 +162,10 @@ class App extends Component {
         { this.state.route === 'home'
          ? <div>
             {/*<Logo />*/}
-            <Rank name={this.state.user.name} entries={this.state.user.entries} />
+            {/*<Rank name={this.state.user.name} entries={this.state.user.entries} />*/}
+            <AlbumList />
             <ImageLinkForm onInputChange={this.onInputChange} onPictureSubmit={this.onPictureSubmit}/>
             {/*<FaceRecognition box={this.state.box} imageUrl= { this.state.imageUrl }/>*/}
-            <AlbumList />
             <Album />
           </div>
          :( this.state.route === 'register' 

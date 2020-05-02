@@ -1,3 +1,16 @@
+#albumList {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    max-width: 86vw;
+    display: flex;
+}
+
+.class_card {
+    display: inline-block;
+}
+
+
 .outline {
     outline: 1px solid;
     object-fit: none;
