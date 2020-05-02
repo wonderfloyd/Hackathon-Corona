@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-class AlbumListCarD extends Component {
+class AlbumListCard extends Component {
     render() {
         return (
             <div key={this.props.classification}
@@ -23,4 +23,4 @@ class AlbumListCarD extends Component {
 
 };
 
-export default AlbumListCarD;
+export default AlbumListCard;
