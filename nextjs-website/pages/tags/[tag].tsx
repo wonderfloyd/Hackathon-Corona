@@ -1,43 +1,18 @@
 import React from 'react';
 import { GetStaticProps, GetStaticPaths } from 'next';
 import fetch from 'isomorphic-unfetch';
-
-import Layout from '../../components/Layout/Layout';
+import BlogIndex from '../../components/BlogIndex';
 import { getTagsForPost } from '../../data';
-import List from '../../components/List';
-import Link from 'next/link';
 
 type Props = {
     posts: any,
     errors?: string
 }
 
-export default class BlogIndex extends React.Component<Props> {
-    render() {
-        const { posts, errors } = this.props
-
-        if (errors) {
-            return (
-                <Layout title={`Error`}>
-                    <p>
-                        <span style={{ color: 'red' }}>Error:</span> {errors}
-                    </p>
-                </Layout>
-            )
-        }
-
-        return (
-            <Layout title="Posts List by Tag">
-                <h1>Posts List by Tag</h1>
-                <List posts={posts} />
-                <p>
-                    <Link href="/">
-                        <a>Go home</a>
-                    </Link>
-                </p>
-            </Layout>
-        )
-    }
+const BlogIndexTags = ({ posts, errors }: Props) => {
+    return (
+        <BlogIndex posts={posts} errors={errors} title="Posts List by Tag" />
+    );
 }
 
 const spaceId = process.env.spaceId;
@@ -71,3 +46,5 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
         return { props: { errors: err.message } }
     }
 }
+
+export default BlogIndexTags;
