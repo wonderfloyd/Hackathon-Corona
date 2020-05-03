@@ -44,7 +44,7 @@ export const getStaticProps: GetStaticProps = async () => {
   try {
     const allEntities = await fetch(`${baseUrl}/spaces/${spaceId}/environments/${environmentId}/entries?access_token=${accessToken}`);
     const entities = await allEntities.json();
-    const posts = entities.items.filter((post: any) => post.sys.contentType.sys.id == "blogPost");
+    const posts = entities.items.filter((entry: any) => entry.sys.contentType.sys.id == "blogPost");
 
     for (let post of posts)
       await getTagsForPost(post);

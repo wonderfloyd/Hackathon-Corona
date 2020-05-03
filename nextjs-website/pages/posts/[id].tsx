@@ -48,7 +48,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const res = await fetch(`${baseUrl}/spaces/${spaceId}/environments/${environmentId}/entries?access_token=${accessToken}`);
   const data = await res.json();
   const posts = data.items;
-  const paths = posts.map((post: any) => ({
+  const paths = posts.filter((entry: any) => entry.sys.contentType.sys.id == "blogPost").map((post: any) => ({
     params: { id: post.sys.id.toString() },
   }))
   return { paths, fallback: false }
