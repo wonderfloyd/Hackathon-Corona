@@ -22,7 +22,8 @@ const List: React.FunctionComponent<Props> = ({ posts }) => {
       {posts.filter(post => {
         return filterString(post.fields.title, filter) ||
           filterString(post.fields.postText, filter) ||
-          filterString(post.fields.excerpt, filter);
+          filterString(post.fields.excerpt, filter) ||
+          post.fields.tags.some((tag: any) => filterString(tag.name, filter));
       }).map(post => (
         <ListItem key={post.sys.id} post={post}/>
       ))}
