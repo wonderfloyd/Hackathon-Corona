@@ -1,38 +1,18 @@
 import { GetStaticProps } from 'next';
-import Link from 'next/link';
 import fetch from 'isomorphic-unfetch';
 
-import Layout from '../../components/Layout/Layout';
-import List from '../../components/List';
-import { getTagsForPost } from '../../data';
+import BlogIndex from '../../components/BlogIndex';
+import { getTagsForPost } from '../../utils/data';
 
 type Props = {
   posts: any[],
   errors?: string
 }
 
-const BlogIndex = ({ posts, errors }: Props) => {
-  if (errors) {
-    return (
-      <Layout title={`Error`}>
-        <p>
-          <span style={{ color: 'red' }}>Error:</span> {errors}
-        </p>
-      </Layout>
-    )
-  }
-
+const BlogIndexMain = ({ posts, errors }: Props) => {
   return (
-    <Layout title="Posts List">
-      <h1>Posts List</h1>
-      <List posts={posts} />
-      <p>
-        <Link href="/">
-          <a>Go home</a>
-        </Link>
-      </p>
-    </Layout>
-  )
+    <BlogIndex posts={posts} errors={errors} title="Posts List" />
+  );
 }
 
 export const getStaticProps: GetStaticProps = async () => {
@@ -44,7 +24,7 @@ export const getStaticProps: GetStaticProps = async () => {
   try {
     const allEntities = await fetch(`${baseUrl}/spaces/${spaceId}/environments/${environmentId}/entries?access_token=${accessToken}`);
     const entities = await allEntities.json();
-    const posts = entities.items.filter((post: any) => post.sys.contentType.sys.id == "blogPost");
+    const posts = entities.items.filter((entry: any) => entry.sys.contentType.sys.id == "blogPost");
 
     for (let post of posts)
       await getTagsForPost(post);
@@ -56,4 +36,4 @@ export const getStaticProps: GetStaticProps = async () => {
   }
 }
 
-export default BlogIndex;
+export default BlogIndexMain;

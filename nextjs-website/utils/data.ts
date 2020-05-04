@@ -1,3 +1,5 @@
+// fetch all tags for a certain posts
+
 import fetch from 'isomorphic-unfetch';
 
 const spaceId = process.env.spaceId;

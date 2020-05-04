@@ -4,7 +4,7 @@ import fetch from 'isomorphic-unfetch';
 
 import Layout from '../../components/Layout/Layout';
 import Tags from '../../components/Tags/Tags';
-import { getTagsForPost } from '../../data';
+import { getTagsForPost } from '../../utils/data';
 
 type Props = {
   post: any,
@@ -48,7 +48,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const res = await fetch(`${baseUrl}/spaces/${spaceId}/environments/${environmentId}/entries?access_token=${accessToken}`);
   const data = await res.json();
   const posts = data.items;
-  const paths = posts.map((post: any) => ({
+  const paths = posts.filter((entry: any) => entry.sys.contentType.sys.id == "blogPost").map((post: any) => ({
     params: { id: post.sys.id.toString() },
   }))
   return { paths, fallback: false }
