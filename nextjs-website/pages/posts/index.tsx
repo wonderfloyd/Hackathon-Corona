@@ -2,7 +2,7 @@ import { GetStaticProps } from 'next';
 import fetch from 'isomorphic-unfetch';
 
 import BlogIndex from '../../components/BlogIndex';
-import { getTagsForPost } from '../../data';
+import { getTagsForPost } from '../../utils/data';
 
 type Props = {
   posts: any[],
