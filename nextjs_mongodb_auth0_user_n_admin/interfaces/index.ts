@@ -17,5 +17,6 @@ export interface User {
   pictureUrl: string,
   locale: string,
   updatedAt: string,
-  sub: string
+  sub: string,
+  ["http://localhost:3000/roles"]: string
 }

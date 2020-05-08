@@ -1,18 +1,19 @@
 import React from 'react';
+import { GetServerSideProps } from 'next';
 
+import auth0 from '../../utils/auth0';
 import Layout from '../../components/Layout';
-import { useFetchUser } from '../../utils/user';
 
-export default function Profile() {
-  const { user, loading } = useFetchUser();
+export default function Profile(props: any) {
+  
+  const { user } = props;
+  console.log('Profile data: ', props.user)
 
   return (
     <Layout title={`Profile Page: ${user?.name}`}>
       <h1>Profile</h1>
 
-      {loading && <p>Loading profile...</p>}
-
-      {!loading && user && (
+      {user && (
         <>
           <p>Profile:</p>
           <pre>{JSON.stringify(user, null, 2)}</pre>
@@ -20,4 +21,22 @@ export default function Profile() {
       )}
     </Layout>
   );
+}
+
+export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
+  console.log('getServerSideProps is running');
+  if (typeof window === 'undefined') {
+    const session = await auth0.getSession(req);
+    const user = session ? session.user : null;
+    if (!user) {
+      res.writeHead(302, {
+        Location: '/api/login'
+      });
+      res.end();
+      return { props: { user: null } };
+    }
+
+    return { props: { user } }
+  }
+  return { props: { user: null } };
 }

@@ -33,16 +33,15 @@ export const UserProvider = ({ value, children }: {value: UserState, children: a
   return <UserData.Provider value={value}>{children}</UserData.Provider>;
 };
 
-export const useUser = () => React.useContext(UserData);
+export const useUser = (): Partial<UserState> => React.useContext(UserData);
 
-export const useFetchUser = () => {
+export const useFetchUser = (): UserState => {
   const [data, setUser] = React.useState<UserState>({
     user: userState || null,
     loading: userState === undefined
   });
 
   React.useEffect(() => {
-    console.log('useFetchUser useEffect');
 
     if (userState !== undefined) {
       console.log('useFetchUser useEffect userState defined - returning: ', userState)
@@ -63,6 +62,5 @@ export const useFetchUser = () => {
     };
   }, [userState]);
 
-  console.log('useFetchUser data: ', data)
   return data;
 };

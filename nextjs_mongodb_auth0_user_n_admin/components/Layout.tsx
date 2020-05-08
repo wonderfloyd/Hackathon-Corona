@@ -17,6 +17,7 @@ const Layout: React.FunctionComponent<Props> = ({
   // loading
 }) => {
   const { user, loading } = useFetchUser();
+  const admin: boolean = user ? user['http://localhost:3000/roles'].includes('Admin') : false;
   return (
     <UserProvider value={{ user, loading }}>
       <Head>
@@ -40,9 +41,11 @@ const Layout: React.FunctionComponent<Props> = ({
                   <Link href="/user/profile"><a>{user.name}</a></Link>
                   {' '}|{' '}
                   <a href="/api/logout">Logout</a>
-                </span>
-              :<a href="/api/login">Login</a>
+                </span> 
+              : <a href="/api/login">Login</a>
           }
+          {' '}|{' '}
+          {admin && <Link href="/admin"><a>Admin</a></Link>}
         </nav>
       </header>
       {children}
