@@ -20,3 +20,9 @@ export interface User {
   sub: string,
   ["http://localhost:3000/roles"]: string
 }
+
+export interface Book {
+  name: string,
+  author: string,
+  user: string
+}

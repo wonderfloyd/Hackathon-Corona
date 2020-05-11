@@ -5,7 +5,7 @@ import Layout from '../../components/Layout';
 
 const AdminPage = () => {
   return (
-    <Layout title="Home | Next.js + TypeScript Example">
+    <Layout title="Admin Dashboard">
       <h1>Admin Dashboard</h1>
       <p></p>
     </Layout>
@@ -19,7 +19,6 @@ export const getServerSideProps: GetServerSideProps = async context => {
   const { req, res } = context;
   if (typeof window === 'undefined') {
     const session = await auth0.getSession(req);
-    console.log(session)
     const userRoles = session?.user['http://localhost:3000/roles'];
     if (!userRoles.includes('Admin')) {
       res.writeHead(302, {

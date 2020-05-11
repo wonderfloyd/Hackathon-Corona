@@ -1,5 +1,6 @@
 import React from 'react';
 import { GetServerSideProps } from 'next';
+import Link from 'next/link';
 
 import auth0 from '../../utils/auth0';
 import Layout from '../../components/Layout';
@@ -17,6 +18,7 @@ export default function Profile(props: any) {
         <>
           <p>Profile:</p>
           <pre>{JSON.stringify(user, null, 2)}</pre>
+          <Link href="/user/books"><a>My Books</a></Link>
         </>
       )}
     </Layout>
