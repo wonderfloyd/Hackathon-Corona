@@ -2,24 +2,20 @@ import * as React from 'react'
 import Link from 'next/link'
 import Head from 'next/head'
 
-import { UserProvider, useFetchUser } from '../utils/user';
+import { useUser } from '../utils/user';
 
 type Props = {
-  title?: string,
-  // user: any,
-  // loading: boolean
+  title?: string
 }
 
 const Layout: React.FunctionComponent<Props> = ({
   children,
-  title = 'This is the default title',
-  // user,
-  // loading
+  title = 'This is the default title'
 }) => {
-  const { user, loading } = useFetchUser();
+  const { user, loading } = useUser();
   const admin: boolean = user ? user['http://localhost:3000/roles'].includes('Admin') : false;
   return (
-    <UserProvider value={{ user, loading }}>
+    <>
       <Head>
         <title>{title}</title>
         <meta charSet="utf-8" />
@@ -53,7 +49,7 @@ const Layout: React.FunctionComponent<Props> = ({
         <hr />
         <span>I'm here to stay (Footer)</span>
       </footer>
-    </UserProvider>
+    </>
   )
 }
 

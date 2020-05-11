@@ -1,11 +1,10 @@
 import Link from 'next/link';
 import Layout from '../components/Layout';
 
-import { useFetchUser } from '../utils/user';
+import { useUser } from '../utils/user';
 
 const IndexPage = () => {
-  const { user, loading } = useFetchUser();
-  console.log('index useUser user: ', user)
+  const { user, loading } = useUser();
   return (
     <Layout title="Home | Next.js + TypeScript Example">
       <h1>Hello 

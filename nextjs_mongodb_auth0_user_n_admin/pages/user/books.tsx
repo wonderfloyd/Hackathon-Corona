@@ -1,10 +1,10 @@
 import useSWR from 'swr';
 import Layout from '../../components/Layout';
-import { useFetchUser } from '../../utils/user';
+import { useUser } from '../../utils/user';
 import { Book } from '../../interfaces';
 
 const Books: React.FC = () => {
-  const user = useFetchUser();
+  const { user } = useUser();
 
   const fetcher = async (url: string): Promise<Book[]> => {
     return new Promise(async (resolve, reject) => {
@@ -19,7 +19,7 @@ const Books: React.FC = () => {
     })
   }
   
-  const { data, error } = useSWR(`/api/user/books?uid=${user.user?.nickname}`, fetcher);
+  const { data, error } = useSWR(`/api/user/books?uid=${user?.nickname}`, fetcher);
 
   if (error) {
     console.log('error in books swr: ', error)

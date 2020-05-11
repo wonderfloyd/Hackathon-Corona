@@ -8,7 +8,6 @@ import Layout from '../../components/Layout';
 export default function Profile(props: any) {
   
   const { user } = props;
-  console.log('Profile data: ', props.user)
 
   return (
     <Layout title={`Profile Page: ${user?.name}`}>
