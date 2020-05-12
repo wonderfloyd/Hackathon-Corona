@@ -76,6 +76,11 @@ const Layout: React.FunctionComponent<Props> = ({
           min-height: 100vh;
         }
 
+        main {
+          width: 80%;
+          margin: 0 auto;
+        }
+
         main:before,
         main:after {
           content: '';

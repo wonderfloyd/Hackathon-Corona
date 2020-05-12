@@ -4,29 +4,29 @@ import fetch from 'isomorphic-unfetch';
 import { User, UserState } from '../interfaces';
 
 // Use a global to save the user, so we don't have to fetch it again after page navigations
-let userState: User;
+let _user: User;
 
-export const UserData = React.createContext<Partial<UserState>>({ user: null, loading: false });
+const UserData = React.createContext<Partial<UserState>>({ user: null, loading: false });
 
 export const fetchUser = async (): Promise<User> => {
-  if (userState !== undefined) {
-    return userState;
+  if (_user !== undefined) {
+    return _user;
   }
 
   console.log('fetching from api')
   const res = await fetch('/api/user/profile');
-  userState = res.ok ? await res.json() : null;
-  console.log('fetch User userState: ', userState)
-  return userState;
+  _user = res.ok ? await res.json() : null;
+  console.log('fetch User _user: ', _user)
+  return _user;
 };
 
 export const UserProvider = ({ value, children }: {value: UserState, children: any}): JSX.Element => {
   const { user } = value;
 
-  // If the user was fetched in SSR add it to userState so we don't fetch it again
+  // If the user was fetched in SSR add it to _user so we don't fetch it again
   React.useEffect(() => {
-    if (!userState && user) {
-      userState = user;
+    if (!_user && user) {
+      _user = user;
     }
   }, []);
 
@@ -37,14 +37,14 @@ export const useUser = (): Partial<UserState> => React.useContext(UserData);
 
 export const useFetchUser = (): UserState => {
   const [data, setUser] = React.useState<UserState>({
-    user: userState || null,
-    loading: userState === undefined
+    user: _user || null,
+    loading: _user === undefined
   });
 
   React.useEffect(() => {
 
-    if (userState !== undefined) {
-      console.log('useFetchUser useEffect userState defined - returning: ', userState)
+    if (_user !== undefined) {
+      console.log('useFetchUser useEffect userState defined - returning: ', _user)
       return;
     }
 
@@ -60,7 +60,7 @@ export const useFetchUser = (): UserState => {
     return () => {
       isMounted = false;
     };
-  }, [userState]);
+  }, [_user]);
 
   return data;
 };

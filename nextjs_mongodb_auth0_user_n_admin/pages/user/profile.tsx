@@ -34,7 +34,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
         Location: '/api/login'
       });
       res.end();
-      return { props: { user: null } };
+      return { props: { user } };
     }
 
     return { props: { user } }

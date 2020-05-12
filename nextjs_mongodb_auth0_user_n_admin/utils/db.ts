@@ -16,3 +16,16 @@ export const getUserBooks = async (nickname: string): Promise<Book[]> => {
   })
   
 }
+
+export const insertBook = async (book: Book): Promise<any> => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      const res = await db.get('books').insert(book);
+      resolve(res);
+    } catch (err) {
+      console.log('error inserting to db: ', err);
+      reject(err);
+    }
+  })
+  
+}

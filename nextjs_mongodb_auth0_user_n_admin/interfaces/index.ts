@@ -24,5 +24,6 @@ export interface User {
 export interface Book {
   name: string,
   author: string,
-  user: string
+  user: string,
+  _id: string | null
 }
