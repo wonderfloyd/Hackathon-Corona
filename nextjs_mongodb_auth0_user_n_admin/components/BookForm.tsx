@@ -1,5 +1,4 @@
 import React, { ChangeEvent, useReducer } from 'react';
-// import { mutate } from 'swr';
 import { useUser } from '../utils/user';
 import { Book } from '../interfaces';
 
@@ -11,6 +10,10 @@ interface State {
 interface Action {
   type: string,
   payload: string
+}
+
+interface Props {
+  mutate: (newBook: Book) => void
 }
 
 const initialState = {
@@ -31,20 +34,10 @@ const reducer = (state: State, action: Action): State => {
   }
 }
 
-// const fetcher = async (url: string, state: State) => {
-//   fetch(url, {
-//     method: 'post',
-//     body: JSON.stringify(state)
-//   })
-// }
-
-const BookForm: React.FC<{ mutate: (nb: Book) => void}> = ({ mutate }) => {
+const BookForm: React.FC<Props> = ({ mutate }) => {
 
   const { user } = useUser();
   const [state, dispatch] = useReducer(reducer, initialState);
-
-  // const { data } = useSWR(['/api/user/books', state], fetcher);
-  // console.log(`data from swr: `, data)
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>): void => {
     const { name, value } = e.target;
@@ -67,9 +60,7 @@ const BookForm: React.FC<{ mutate: (nb: Book) => void}> = ({ mutate }) => {
     });
     const data = await res.json();
     console.log('insertBook data: ', data);
-
     mutate(newBook);
-    // mutate('/api/user/books', { state })
     dispatch({ type: 'clear', payload: '' })
   }
 

@@ -1,4 +1,4 @@
-import useSWR, { mutate } from 'swr';
+import useSWR from 'swr';
 import Layout from '../../components/Layout';
 import { useUser } from '../../utils/user';
 import { Book } from '../../interfaces';
@@ -14,7 +14,6 @@ const Books: React.FC = () => {
       try {
         const res = await fetch(url);
         const data = await res.json();
-        console.log('books length: ', data.length)
         resolve(data);
       } catch (err) {
         console.warn('error fetching books from api: ', err);
@@ -22,8 +21,25 @@ const Books: React.FC = () => {
       }
     })
   }
-  
-  const { data, error } = useSWR(`/api/user/books?uid=${user?.nickname}`, fetcher);
+
+  const { data, error, mutate } = useSWR(`/api/user/books?uid=${user?.nickname}`, fetcher);
+
+  const handleDelete = async (id: string | null): Promise<void> => {
+    if (!id) return;
+    try {
+      const delRes = await fetch('/api/user/books', {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(id)
+      });
+      console.log(await delRes.json());
+      mutate();
+    } catch (err) {
+      console.warn('error deleting book: ', err);
+    }
+  }
 
   if (error) {
     console.log('error in books swr: ', error)
@@ -37,10 +53,29 @@ const Books: React.FC = () => {
   return (
     <Layout>
       <h2>Your Reading List</h2>
-      <BookForm mutate={(nb: Book) => mutate('/api/user/books', { ...data, nb })}/>
+      <BookForm mutate={(newBook: Book) => mutate([...data, newBook])} />
       <ul>
-        {data.map((book: Book) => <li key={book.name}><b>{book.name}</b>, by <i>{book.author}</i></li>)}
+        {data.map((book: Book) => (
+          <li key={book.name}>
+            <span><b>{book.name}</b>, by <i>{book.author}</i></span>
+            <button onClick={() => handleDelete(book._id)}>X</button>
+          </li>
+        ))}
       </ul>
+
+      <style jsx>{`
+        ul {
+          list-style: none;
+          padding-left: 0;
+        }
+        li {
+          display: flex;
+          justify-content: space-between;
+        }
+        span {
+          display: block;
+        }
+      `}</style>
     </Layout>
   )
 }

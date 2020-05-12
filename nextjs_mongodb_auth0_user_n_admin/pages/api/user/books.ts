@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 
-import { getUserBooks, insertBook } from '../../../utils/db';
+import { getUserBooks, insertBook, deleteBook } from '../../../utils/db';
 import { Book } from '../../../interfaces';
 
 export default async function books(req: NextApiRequest, res: NextApiResponse): Promise<void> {
@@ -26,6 +26,18 @@ export default async function books(req: NextApiRequest, res: NextApiResponse): 
       console.warn('error inserting a book: ', err);
       res.status(500).end(err);
       return;
+    }
+  }
+
+  else if (req.method === 'DELETE') {
+    try {
+      const dbRes = await deleteBook(req.body);
+      res.status(200).json(dbRes);
+      return;
+    } catch (err) {
+      console.warn('error deleting a book: ', err);
+      res.status(500).end(err);
+      return
     }
   }
 }
