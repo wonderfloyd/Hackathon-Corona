@@ -24,19 +24,11 @@ export default function Profile(props: any) {
   );
 }
 
-export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
-  console.log('getServerSideProps is running');
+export const getServerSideProps: GetServerSideProps = async ({ req }) => {
   if (typeof window === 'undefined') {
     const session = await auth0.getSession(req);
     const user = session ? session.user : null;
-    if (!user) {
-      res.writeHead(302, {
-        Location: '/api/login'
-      });
-      res.end();
-      return { props: { user } };
-    }
-
+    
     return { props: { user } }
   }
   return { props: { user: null } };

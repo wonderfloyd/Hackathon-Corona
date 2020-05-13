@@ -35,7 +35,7 @@ export const deleteBook = async (id: string): Promise<any> => {
     try {
       const res = await db.get('books').remove({ _id: id }, { multi: false });
       if (!res.result.n) {
-        reject('Book not deleted!')
+        reject('Book not deleted!');
       }
       resolve(res.result);
     } catch (err) {

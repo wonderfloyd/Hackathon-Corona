@@ -14,22 +14,12 @@ const AdminPage = () => {
 
 export default AdminPage;
 
-export const getServerSideProps: GetServerSideProps = async context => {
-  console.log('admin getServerSideProps is running');
-  const { req, res } = context;
+export const getServerSideProps: GetServerSideProps = async ({ req }) => {
   if (typeof window === 'undefined') {
     const session = await auth0.getSession(req);
-    const userRoles = session?.user['http://localhost:3000/roles'];
-    if (!userRoles.includes('Admin')) {
-      res.writeHead(302, {
-        Location: '/user/profile'
-      });
-      
-      res.end();
-      return { props: { user: null } };
-    }
-
-    return { props: { user: session?.user } }
+    const user = session ? session.user : null;
+    
+    return { props: { user } };
   }
 
   return { props: { user: null } };

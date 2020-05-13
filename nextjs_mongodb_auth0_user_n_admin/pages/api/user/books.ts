@@ -4,6 +4,8 @@ import { getUserBooks, insertBook, deleteBook } from '../../../utils/db';
 import { Book } from '../../../interfaces';
 
 export default async function books(req: NextApiRequest, res: NextApiResponse): Promise<void> {
+
+  // get all user's books
   if (req.method === 'GET') {
     try {
       const { uid } = req.query;
@@ -17,6 +19,7 @@ export default async function books(req: NextApiRequest, res: NextApiResponse): 
     }
   }
 
+  // insert new book
   else if (req.method === 'POST') {
     try {
       const dbRes = await insertBook(req.body);
@@ -29,6 +32,7 @@ export default async function books(req: NextApiRequest, res: NextApiResponse): 
     }
   }
 
+  // delete a book
   else if (req.method === 'DELETE') {
     try {
       const dbRes = await deleteBook(req.body);

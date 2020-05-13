@@ -24,9 +24,9 @@ const initialState = {
 const reducer = (state: State, action: Action): State => {
   switch (action.type) {
     case 'name':
-      return { ...state, name: action.payload};
+      return { ...state, name: action.payload };
     case 'author':
-      return { ...state, author: action.payload};
+      return { ...state, author: action.payload };
     case 'clear':
       return { ...initialState }
     default:
@@ -44,24 +44,29 @@ const BookForm: React.FC<Props> = ({ mutate }) => {
     dispatch({ type: name, payload: value })
   }
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (): Promise<void> => {
     if (!state.author.length || !state.name.length || !user) {
       alert('Please fill in both fields to add a book.');
       return;
     } 
 
-    const newBook: Book = { ...state, user: user.nickname, _id: null }
-    const res = await fetch('/api/user/books', {
-      method: 'post',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(newBook)
-    });
-    const data = await res.json();
-    console.log('insertBook data: ', data);
-    mutate(newBook);
-    dispatch({ type: 'clear', payload: '' })
+    try {
+      const newBook: Book = { ...state, user: user.nickname, _id: null }
+      const res = await fetch('/api/user/books', {
+        method: 'post',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(newBook)
+      });
+
+      const data = await res.json();
+      console.log('insertBook data: ', data);
+      mutate(newBook);
+      dispatch({ type: 'clear', payload: '' });
+    } catch (err) {
+      console.warn('error submiting new book: ', err);
+    }
   }
 
   return (

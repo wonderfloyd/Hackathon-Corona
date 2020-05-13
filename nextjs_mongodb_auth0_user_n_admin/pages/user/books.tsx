@@ -27,14 +27,13 @@ const Books: React.FC = () => {
   const handleDelete = async (id: string | null): Promise<void> => {
     if (!id) return;
     try {
-      const delRes = await fetch('/api/user/books', {
+      await fetch('/api/user/books', {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify(id)
       });
-      console.log(await delRes.json());
       mutate();
     } catch (err) {
       console.warn('error deleting book: ', err);
@@ -58,7 +57,7 @@ const Books: React.FC = () => {
         {data.map((book: Book) => (
           <li key={book.name}>
             <span><b>{book.name}</b>, by <i>{book.author}</i></span>
-            <button onClick={() => handleDelete(book._id)}>X</button>
+            <button onClick={() => handleDelete(book._id)}> X </button>
           </li>
         ))}
       </ul>
