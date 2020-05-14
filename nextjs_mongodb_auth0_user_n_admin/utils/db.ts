@@ -2,7 +2,7 @@ import monk from 'monk';
 
 import { Book } from '../interfaces';
 
-const db = monk('localhost:27017/next-auth0-mongo');
+const db = monk(`${process.env.dbUrl}`);
 
 export const getUserBooks = async (nickname: string): Promise<Book[]> => {
   return new Promise((resolve, reject) => {

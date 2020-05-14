@@ -1,13 +1,17 @@
 import { initAuth0 } from '@auth0/nextjs-auth0';
-// import config from './config';
+
+const domain = process.env.domain;
+const clientId = process.env.clientId;
+const clientSecret = process.env.clientSecret;
+const localUrl = process.env.localUrl;
 
 export default initAuth0({
-  domain: 'dev-wkmwgi-q.auth0.com',
-  clientId: 'V8ldizc3zjNgSfJu3RI6ynoqygsp1inx',
-  clientSecret: 'NkATIM6pDWZhW0mCFxShMEj9lX89q5neRaix9rxhM7jqzbXIDb61RLsF0MucrNj9',
+  domain: domain as string,
+  clientId: clientId as string,
+  clientSecret,
   scope: 'openid profile',
-  redirectUri: 'http://localhost:3000/api/callback',
-  postLogoutRedirectUri: 'http://localhost:3000/',
+  redirectUri: `${localUrl}/api/callback`,
+  postLogoutRedirectUri: `${localUrl}`,
   session: {
     // The secret used to encrypt the cookie.
     cookieSecret: 'randodkndiugdoijd863949h4iug98y8',
