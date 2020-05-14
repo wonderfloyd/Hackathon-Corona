@@ -1,4 +1,4 @@
-# Next.js Auth0 MongoDB - User and admin roles 
+# 🔐 Next.js Auth0 MongoDB - User and admin roles 
 
 User roles (No-login, User and Admin) implementation in a Next.js website, which also leverages MongoDB to store and display user data.
 
@@ -9,7 +9,7 @@ User roles (No-login, User and Admin) implementation in a Next.js website, which
 - [MongoDB](https://www.mongodb.com/)
 - [Monk](https://automattic.github.io/monk/)
 
-<!-------------- add a diagram here --------------->
+![app's diagram](./assets/next-auth0-mongo.jpg)
 
 ## Set Up
 
