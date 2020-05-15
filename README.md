@@ -1,10 +1,23 @@
 # Hackathon-Corona
-Hachathon for developing End-2-End Applications in Javascript<br>
+Hackathon for developing End-2-End Applications in Javascript<br>
 Each Application is a FullStack Application with some functionality.
 
+![HackathonWords](http://3.16.147.204:5000/HackathonWords.png)
+## Next Meeting
+![NextHackathon](http://3.16.147.204:5000/NextHackathon.png)
+
+<a target="_blank" href="https://calendar.google.com/event?action=TEMPLATE&amp;tmeid=MGdkcGhtcTFna2MzbGtuMmYyOWZoYjBxaWYgaGFja2F0aG9uQGZsb3diaXouaW5mbw&amp;tmsrc=hackathon%40flowbiz.info"><img border="0" src="https://www.google.com/calendar/images/ext/gc_button1_en.gif"></a>
+
+## Contact
+<a href = "mailto: hackathon@flowbiz.info">hackathon@flowbiz.info</a>
+
+Please provide yor github user, so we can add you to this github repo as a contributor.<br>
+We will also add you to the slack channel where we discuss everything regarding this hackathon.
+
+# Applications:
 The root project presents all Applications in the Hackathon.<br>
 Each Application has a folder that contains all src files that are needed for installing and running the application.
-# Applications:
+
 | Name   |      Ports   |      DataBase   |      Comments
 |----------|:-------------:|:-------------:|:-------------:|
 | 📷 [React PostgreSQL Photo Album](./react_postgreSQL_photo_album/README.md) | 3000,3001 | Postgres
@@ -32,14 +45,7 @@ Each Application has a folder that contains all src files that are needed for in
     - Make sure the Application emoji is first in the issue title
     - Write a description of what you want to achieve, maybe add some screenshots or some other visuals for better communication of your idea.
 - Optional - [Suggest an Application to the Hackathon](#adding-application)
-# Hackathon Schedule
-- Starting at 14:00
-- Introduction
-  - Saying Hi to everyone
-  - Going over the applications and issues
-- Start Development
-  - Working on [issues](https://github.com/wonderfloyd/Hackathon-Corona/issues)
-  - Finishing when last person falls asleep
+
 ## Working on Issue
 - Assign the [issue](https://github.com/wonderfloyd/Hackathon-Corona/issues) to yourself
 - Create a Branch with name: [YourName]-[IssueKey]<br>
@@ -57,10 +63,9 @@ There will be a channel in Slack where all participants are members.
 - Chat for asking questions and having discussion
 - Sync With github issues and commits/pushes
 ## ZOOM
-- Each Participant put his zoom on mute
-- At any point - there is one Presenter or none.
-  - The presenter un-mutes his zoom, shares his screen and presents some work
-  - If anybody wants to ask a question, he un-mutes his zoom, asks the question and than mutes back.
-  - When the presenter finishes presenting, than he un-shares his screen and someone else can share their screen and become the presenter.
+- The Meeting link is published in the slack channel
+- During the meeting, there is one Presenter at a time.
+  - The presenter shares his screen and presents some work
+  - Anybody can ask questions
 - If you want to present, wait until current presenter finishes his presentation<br>
 or politely ask him to fuckin finish already 
