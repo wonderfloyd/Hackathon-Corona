@@ -6,8 +6,6 @@ Each Application is a FullStack Application with some functionality.
 ## Next Meeting
 ![NextHackathon](http://3.16.147.204:5000/Next_Hackathon.png)
 
-<a target="_blank" href="https://calendar.google.com/event?action=TEMPLATE&amp;tmeid=MGdkcGhtcTFna2MzbGtuMmYyOWZoYjBxaWYgaGFja2F0aG9uQGZsb3diaXouaW5mbw&amp;tmsrc=hackathon%40flowbiz.info"><img border="0" src="https://www.google.com/calendar/images/ext/gc_button1_en.gif"></a>
-
 ## Contact
 <a href = "mailto: hackathon@flowbiz.info">hackathon@flowbiz.info</a>
 
