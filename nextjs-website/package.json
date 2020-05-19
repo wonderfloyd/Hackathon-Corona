@@ -2,7 +2,7 @@
   "name": "nextjs-website-blog",
   "version": "1.0.0",
   "scripts": {
-    "dev": "next -p 3003",
+    "dev": "cross-env NODE_OPTIONS=--inspect next -p 3003",
     "build": "next build",
     "start": "next start -p 3004",
     "type-check": "tsc",
@@ -10,16 +10,17 @@
     "test:perf:trace": "cd tests && ts-node example.trace.ts"
   },
   "dependencies": {
+    "cross-env": "^7.0.2",
     "isomorphic-unfetch": "^3.0.0",
-    "next": "^9.3.4",
+    "next": "^9.4.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
   },
   "devDependencies": {
-    "@types/node": "^12.12.21",
-    "@types/puppeteer": "^2.0.1",
-    "@types/react": "^16.9.16",
-    "@types/react-dom": "^16.9.4",
+    "@types/node": "^12.12.40",
+    "@types/puppeteer": "^2.1.1",
+    "@types/react": "^16.9.35",
+    "@types/react-dom": "^16.9.8",
     "puppeteer": "^2.1.1",
     "typescript": "3.7.3"
   },
