@@ -24,7 +24,7 @@
   "devDependencies": {
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
-    "jest-enzyme": "^6.0.2",
+    "jest-enzyme": "^7.1.2",
     "jest-fetch-mock": "^1.6.5",
     "prettier": "^1.11.1",
     "react-app-rewired": "^2.1.1"
